@@ -421,9 +421,7 @@
     width: 100vw;
     position: relative;
     left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    transform: translateX(-50%);
     background: #18181b;
     border-top: 2px dashed #27272a;
     border-bottom: 2px dashed #27272a;
