@@ -160,13 +160,39 @@
             <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase mb-12 spring-up flex items-center gap-4">
                 <span class="text-neonPink animate-spin-slow">❋</span> wins.
             </h2>
-            <div class="neo-card pink p-12 flex flex-col justify-center items-center text-center hover-trigger spring-up group bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800 to-cardBg max-w-4xl mx-auto">
-                <div class="font-sans text-8xl md:text-9xl font-extrabold text-neonPink mb-4 group-hover:scale-110 transition-transform">1st</div>
-                <div class="font-mono font-bold text-2xl uppercase tracking-widest text-zinc-300">place winner</div>
-                <div class="font-mono text-base text-zinc-400 mt-6 border-t-2 border-zinc-800 pt-6 w-full max-w-md space-y-2">
-                    <div>sutd smorphi (singapore)</div>
-                    <div>cismohack (national)</div>
-                    <div>ml project expo</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 1st Place -->
+                <div class="neo-card pink p-8 flex flex-col justify-center items-center text-center hover-trigger spring-up group bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800 to-cardBg">
+                    <div class="font-sans text-7xl md:text-8xl font-extrabold text-neonPink mb-4 group-hover:scale-110 transition-transform">1st</div>
+                    <div class="font-mono font-bold text-xl uppercase tracking-widest text-zinc-300">place winner</div>
+                    <div class="font-mono text-sm text-zinc-400 mt-6 border-t-2 border-zinc-800 pt-6 w-full space-y-2">
+                        <div>sutd smorphi (singapore)</div>
+                        <div>cismohack (national)</div>
+                        <div>ml project expo</div>
+                        <div>south india conclave</div>
+                        <div>semiconductor expo</div>
+                        <div>nwc expo</div>
+                    </div>
+                </div>
+                <!-- 2nd Place -->
+                <div class="neo-card blue p-8 flex flex-col justify-center items-center text-center hover-trigger spring-up group bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800 to-cardBg">
+                    <div class="font-sans text-7xl md:text-8xl font-extrabold text-neonBlue mb-4 group-hover:scale-110 transition-transform">2nd</div>
+                    <div class="font-mono font-bold text-xl uppercase tracking-widest text-zinc-300">runner up</div>
+                    <div class="font-mono text-sm text-zinc-400 mt-6 border-t-2 border-zinc-800 pt-6 w-full space-y-2">
+                        <div>c.tech project expo</div>
+                        <div>arduino hackathon</div>
+                        <div>sutd smorphi (category)</div>
+                    </div>
+                </div>
+                <!-- Top Rankings -->
+                <div class="neo-card lime p-8 flex flex-col justify-center items-center text-center hover-trigger spring-up group bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800 to-cardBg">
+                    <div class="font-sans text-7xl md:text-8xl font-extrabold text-neonLime mb-4 group-hover:scale-110 transition-transform">Top</div>
+                    <div class="font-mono font-bold text-xl uppercase tracking-widest text-zinc-300">rankings</div>
+                    <div class="font-mono text-sm text-zinc-400 mt-6 border-t-2 border-zinc-800 pt-6 w-full space-y-2">
+                        <div>3rd – bis hackathon</div>
+                        <div>4th – hack sustain</div>
+                        <div>5th – srm founder's hack</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -261,68 +287,287 @@
                 <span class="text-neonLime animate-spin-slow">❋</span> builds.
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <!-- Project 1 (Large, Spans 7 cols) -->
-                <div class="neo-card lime col-span-1 md:col-span-7 p-8 md:p-12 min-h-[400px] flex flex-col justify-between hover-trigger spring-up group">
-                    <div class="flex justify-between items-start mb-8">
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">next.js</span>
+                <!-- project_01.sh -->
+                <div class="neo-card pink col-span-1 md:col-span-6 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonPink transition-colors">project_01.sh</div>
+                        <a href="https://github.com/RishitTandon7/Agentic-AI" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonPink">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonPink transition-colors">Agentic-AI</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            advanced ai agents framework for autonomous task execution and problem-solving using langchain and openai
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">python</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">langchain</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">openai</span>
+                    </div>
+                </div>
+                <!-- project_02.sh -->
+                <div class="neo-card lime col-span-1 md:col-span-6 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonLime transition-colors">project_02.sh</div>
+                        <a href="https://github.com/RishitTandon7/LinkedIn-Uploader" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonLime">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonLime transition-colors">LinkedOut – AI LinkedIn Post Scheduler</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            full-stack pwa with linkedin oauth 2.0; agentic caption & hashtag generation via gemini api with persona-based prompting. post scheduling engine that auto-publishes at user-defined times. deployed on vercel with supabase backend.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonLime group-hover:border-neonLime">next.js</span>
                             <span class="pill group-hover:text-neonLime group-hover:border-neonLime">fastapi</span>
-                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">aws</span>
-                        </div>
-                        <span class="font-mono text-zinc-500 font-bold group-hover:text-neonLime transition-colors">2024</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">supabase</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">gemini api</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">linkedin oauth</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">pwa</span>
+                    </div>
+                </div>
+                <!-- project_03.sh -->
+                <div class="neo-card blue col-span-1 md:col-span-5 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonBlue transition-colors">project_03.sh</div>
+                        <a href="https://github.com/RishitTandon7/VaxTrack" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonBlue">
+                            code ↗
+                        </a>
                     </div>
                     <div>
-                        <h3 class="font-sans text-5xl md:text-6xl lg:text-7xl font-bold mb-4 uppercase leading-none group-hover:text-neonLime transition-colors text-balance">agent marketplace</h3>
-                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl">
-                            full-stack ai agent marketplace. devs discover, purchase, and consume specialized ai agents via auto-provisioned REST API keys. built w/ supabase multi-tenant auth & razorpay webhooks.
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonBlue transition-colors">VaxTrack</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            comprehensive vaccination tracking system for managing immunization records and schedules
                         </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">react</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">node.js</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">mongodb</span>
+                    </div>
+                </div>
+                <!-- project_04.sh -->
+                <div class="neo-card dark col-span-1 md:col-span-7 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-white transition-colors">project_04.sh</div>
+                        <a href="https://github.com/RishitTandon7/Prasad" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-white">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-white transition-colors">TREAT – Community Meal Discovery Platform</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            multilingual whatsapp chatbot supporting food donations, event registration, volunteer onboarding, feedback, and location-based temple meal discovery. java backend with mysql, automated sms/whatsapp via twilio webhooks.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-white group-hover:border-white">java</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">mysql</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">twilio api</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">whatsapp automation</span>
+                    </div>
+                </div>
+                <!-- project_05.sh -->
+                <div class="neo-card pink col-span-1 md:col-span-7 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonPink transition-colors">project_05.sh</div>
+                        <a href="https://github.com/RishitTandon7/EduStream" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonPink">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonPink transition-colors">EduStream</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            java-based virtual classroom with role-based access control for secure content management and teacher-student collaboration. integrated python-based video calling module and classroom creation via unique codes.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">java</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">python</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">client-server architecture</span>
+                    </div>
+                </div>
+                <!-- project_06.sh -->
+                <div class="neo-card lime col-span-1 md:col-span-5 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonLime transition-colors">project_06.sh</div>
+                        <a href="https://github.com/RishitTandon7/ULTRON" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonLime">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonLime transition-colors">ULTRON</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            advanced ai system designed for automation and intelligent task management
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonLime group-hover:border-neonLime">python</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">ai</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">automation</span>
+                    </div>
+                </div>
+                <!-- project_07.sh -->
+                <div class="neo-card blue col-span-1 md:col-span-4 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonBlue transition-colors">project_07.sh</div>
+                        <a href="https://github.com/RishitTandon7/KisanVikas" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonBlue">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonBlue transition-colors">KisanVikas</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            agricultural platform empowering farmers with modern tools and market insights
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">android</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">java</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">firebase</span>
+                    </div>
+                </div>
+                <!-- project_08.sh -->
+                <div class="neo-card dark col-span-1 md:col-span-8 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-white transition-colors">project_08.sh</div>
+                        <a href="https://github.com/RishitTandon7/NeuroVibe" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-white">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-white transition-colors">NeuroVibe</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            brain-computer interface (bci) system using eeg signals (bioamp band + esp32) to control wheelchair movement in real time. trained a random forest classifier to decode mental commands (move, stop, led on/off). low-latency, low-cost assistive mobility solution integrating ml model with motor control.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-white group-hover:border-white">esp32</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">bioamp exg pill</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">machine learning</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">arduino</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">bci</span>
+                    </div>
+                </div>
+                <!-- project_09.sh -->
+                <div class="neo-card pink col-span-1 md:col-span-8 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonPink transition-colors">project_09.sh</div>
+                        <a href="https://github.com/RishitTandon7/AISGR" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonPink">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonPink transition-colors">AI Smart Glasses (AISGR)</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            wearable ai system with onboard camera, microphone, and speaker for real-time object detection and voice interaction. added hands-free video/phone calls, object identification, environment summaries, and distance cues for assistive use. optimized vision and audio pipeline for low-latency real-time performance.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">llama 3.2 vision</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">python</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">opencv</span>
+                            <span class="pill group-hover:text-neonPink group-hover:border-neonPink">agentic ai</span>
+                    </div>
+                </div>
+                <!-- project_10.sh -->
+                <div class="neo-card lime col-span-1 md:col-span-4 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonLime transition-colors">project_10.sh</div>
+                        <a href="https://github.com/RishitTandon7/MedAssist" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonLime">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonLime transition-colors">MedAssist</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            symptom checker and medicine delivery robot. identifies potential diseases from user-provided symptoms and recommends medications. whatsapp chatbot via twilio + python backend + ngrok tunnel. frontend in html/css with home, prevention, shop, cart, order tracking sections.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonLime group-hover:border-neonLime">python</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">twilio whatsapp api</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">arduino</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">hc-05</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">html/css</span>
+                    </div>
+                </div>
+                <!-- project_11.sh -->
+                <div class="neo-card blue col-span-1 md:col-span-6 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonBlue transition-colors">project_11.sh</div>
+                        <a href="https://github.com/RishitTandon7/agent-marketplace" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonBlue">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonBlue transition-colors">Agent Marketplace</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            full-stack ai agent marketplace where developers discover, purchase, and consume specialized ai agents via auto-provisioned rest api keys. python/fastapi backend + supabase (postgresql). razorpay payment gateway with webhook-driven order fulfillment — api keys auto-generated on payment confirmation. deployed on aws.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">react</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">next.js</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">python</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">fastapi</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">supabase</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">razorpay</span>
+                            <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">aws</span>
+                    </div>
+                </div>
+                <!-- project_12.sh -->
+                <div class="neo-card dark col-span-1 md:col-span-6 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-white transition-colors">project_12.sh</div>
+                        <a href="https://github.com/RishitTandon7/AI-Negotiation-System" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-white">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-white transition-colors">AI Negotiation System</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            autonomous multi-agent negotiation system (buyer vs seller) using gemini 2.0 and recursive feedback loops. llama 3.2 as llm judge achieving 0.87 roc-auc score. playwright-based scraper with google shopping fallback; 99.9% data reliability by bypassing captchas.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-white group-hover:border-white">python</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">flask</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">gemini 2.0</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">playwright</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">ollama</span>
+                            <span class="pill group-hover:text-white group-hover:border-white">llama 3.2</span>
+                    </div>
+                </div>
+                <!-- project_13.sh -->
+                <div class="neo-card lime col-span-1 md:col-span-12 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-6 border-b-2 border-zinc-800 pb-4">
+                        <div class="font-mono font-bold text-zinc-500 group-hover:text-neonLime transition-colors">project_13.sh</div>
+                        <a href="https://github.com/RishitTandon7/Multiverse" target="_blank" onclick="fetch(this.href, {method: 'HEAD'}).then(r => { if(!r.ok) window.open('https://github.com/RishitTandon7', '_blank'); return false; }).catch(()=>window.open('https://github.com/RishitTandon7', '_blank')); return false;" class="font-mono text-sm hover:underline decoration-2 underline-offset-4 flex items-center gap-2 group-hover:text-neonLime">
+                            code ↗
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl md:text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonLime transition-colors">Multiverse (IoT Digital Twin)</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl mb-6">
+                            real-time digital twin system synchronizing live telemetry from 20+ esp-based nodes (100+ sensor data points) into a unity 3d environment. bi-directional control via custom api pipeline. 40% improvement in monitoring responsiveness.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="pill group-hover:text-neonLime group-hover:border-neonLime">react</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">next.js</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">tailwind css</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">unity</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">c#</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">esp32</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">rest apis</span>
                     </div>
                 </div>
 
-                <!-- Project 2 (Medium, Spans 5 cols) -->
-                <div class="neo-card blue col-span-1 md:col-span-5 p-8 min-h-[400px] flex flex-col justify-between hover-trigger spring-up group">
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">ml</span>
-                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">esp32</span>
-                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">eeg</span>
-                    </div>
-                    <div>
-                        <h3 class="font-sans text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonBlue transition-colors">neurovibe bci</h3>
-                        <p class="font-mono text-zinc-400 text-sm">
-                            brain-computer interface system using eeg signals to control a wheelchair in real-time. trained a random forest classifier to decode mental commands w/ low latency.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 3 (Medium, Spans 7 cols) -->
-                <div class="neo-card col-span-1 md:col-span-7 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group relative overflow-hidden">
-                    <div class="absolute -right-10 -bottom-10 opacity-10 font-sans text-[200px] font-bold leading-none pointer-events-none transition-transform group-hover:rotate-12">🌐</div>
-                    <div class="flex flex-wrap gap-2 mb-8 relative z-10">
-                        <span class="pill group-hover:text-white group-hover:border-white">unity 3d</span>
-                        <span class="pill group-hover:text-white group-hover:border-white">c#</span>
-                        <span class="pill group-hover:text-white group-hover:border-white">iot apis</span>
-                    </div>
-                    <div class="relative z-10">
-                        <h3 class="font-sans text-4xl font-bold mb-4 uppercase leading-none">multiverse digital twin</h3>
-                        <p class="font-mono text-zinc-400 text-sm max-w-lg">
-                            real-time digital twin synchronizing live telemetry from 20+ esp-based nodes (100+ sensor data points) into a unity 3d environment w/ bi-directional api control.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 4 (Small, Spans 5 cols) -->
-                <div class="neo-card pink col-span-1 md:col-span-5 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">react</span>
-                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">gemini api</span>
-                    </div>
-                    <div>
-                        <h3 class="font-sans text-3xl font-bold mb-2 uppercase group-hover:text-neonPink transition-colors">linkedout ai</h3>
-                        <p class="font-mono text-zinc-400 text-xs">
-                            pwa w/ linkedin oauth. agentic caption pipeline using gemini api w/ persona prompts & python queuing.
-                        </p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -352,34 +597,287 @@
                 <div class="neo-card lime p-8 hover-trigger group">
                     <!-- Added Custom Scrollbar & Max Height for Option 1 -->
                     <ul class="font-mono text-base text-zinc-300 space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=Machine+Learning&font=monospace">
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_1.jpg">
                             <div class="flex items-center gap-3">
                                 <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
                                 <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Machine Learning</span>
                             </div>
                             <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">NPTEL IIT Kharagpur</span>
                         </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=Python+DS+%26+AI&font=monospace">
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_2.jpg">
                             <div class="flex items-center gap-3">
                                 <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Python for DS &amp; AI</span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Python for Data Science, AI & Development</span>
                             </div>
                             <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">IBM</span>
                         </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=Unity+Essentials&font=monospace">
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_3.jpg">
                             <div class="flex items-center gap-3">
                                 <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
                                 <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Unity Essentials</span>
                             </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Unity</span>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Unity Technologies</span>
                         </li>
-                        <li class="cert-item flex items-center justify-between group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=DBMS&font=monospace">
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_4.jpg">
                             <div class="flex items-center gap-3">
                                 <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">DBMS</span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Database Management Systems (DBMS)</span>
                             </div>
                             <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Udemy</span>
                         </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_5.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Machine Learning Bootcamp (Arcade Intelligence)</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Next-Gen AI, SRM IST</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_6.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Learn Ethical Hacking From Scratch</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Udemy</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_7.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Outstanding Student of 1st year</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">C.Tech Department</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_8.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 8</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_9.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 9</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_10.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 10</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_11.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 11</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_12.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 12</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_13.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 13</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_14.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 14</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_15.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 15</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_16.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 16</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_17.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 17</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_18.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 18</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_19.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 19</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_20.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 20</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_21.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 21</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_22.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 22</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_23.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 23</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_24.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 24</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_25.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 25</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_26.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 26</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_27.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 27</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_28.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 28</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_29.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 29</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_30.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 30</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_31.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 31</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_32.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 32</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_33.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 33</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_34.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 34</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_35.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 35</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_36.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 36</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_37.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 37</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_38.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 38</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_39.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 39</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_40.jpg">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 40</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -426,7 +924,7 @@
                 <div class="flex flex-wrap justify-center gap-6 font-mono font-bold text-xl uppercase">
                     <a href="mailto:rishit.tandon.7@gmail.com" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">email ↗</a>
                     <a href="https://github.com/RishitTandon7" target="_blank" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">github ↗</a>
-                    <a href="https://rishit-tandon.netlify.app" target="_blank" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">resume ↗</a>
+                    <a href="Rishit%20Tandon%20Image.pdf" target="_blank" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">resume ↗</a>
                 </div>
             </div>
             
@@ -545,7 +1043,7 @@
                     <li>Software Development Intern @ DGTL Innovations</li>
                 </ul>
 
-                <a href="https://rishit-tandon.netlify.app" target="_blank" class="text-blue-600 underline font-bold hover-trigger">View Full Document ↗</a>
+                <a href="Rishit Tandon Image.pdf" target="_blank" class="text-blue-600 underline font-bold hover-trigger">View Full Document ↗</a>
             </div>
             <!-- Swipe indicator for mobile -->
             <div class="mobile-home-bar" onclick="closeOsWindow('resume-win')"></div>
