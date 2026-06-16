@@ -568,10 +568,18 @@
                     </div>
                 </div>
 
+
+            </div>
+            
+            <div class="mt-12 flex justify-center w-full" id="load-more-container">
+                <button id="load-more-btn" class="magnetic-btn px-8 py-4 bg-transparent text-white font-sans font-bold text-xl rounded-2xl border-2 border-zinc-700 hover:border-white transition-colors hover-trigger" onclick="loadMoreProjects()">
+                    load more ↓
+                </button>
             </div>
         </section>
 
         <!-- CERTIFICATES -->
+
         <section class="max-w-[1400px] mx-auto px-6 py-16 md:py-32" id="certs">
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6 spring-up">
@@ -1389,6 +1397,44 @@
         <img id="lightbox-img" class="max-w-full max-h-full object-contain scale-95 transition-transform duration-300 border-4 border-neonPink shadow-[0_0_50px_rgba(255,0,255,0.3)]" alt="Expanded Certificate" />
     </div>
 
+
+    <script>
+        // Load More Projects Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('#projects .neo-card');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('load-more-container');
+            
+            let projectsVisible = 4; // initially show 4 projects
+
+            function updateProjectsVisibility() {
+                projectCards.forEach((card, index) => {
+                    if (index < projectsVisible) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                if (projectsVisible >= projectCards.length) {
+                    if(loadMoreContainer) {
+                        loadMoreContainer.style.display = 'none';
+                    }
+                }
+            }
+
+            window.loadMoreProjects = function() {
+                projectsVisible += 4;
+                updateProjectsVisibility();
+            };
+
+            // Initialize on load
+            if(projectCards.length > 0) {
+                updateProjectsVisibility();
+            }
+        });
+    </script>
 </body>
+
 
 </html>
