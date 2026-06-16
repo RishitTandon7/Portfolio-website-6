@@ -1329,7 +1329,7 @@
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             const lightboxClose = document.getElementById('lightbox-close');
-            const triggers = document.querySelectorAll('.lightbox-trigger');
+            const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
 
             function openLightbox(src) {
                 lightboxImg.src = src;
@@ -1345,7 +1345,7 @@
                 }, 300);
             }
 
-            triggers.forEach(trigger => {
+            lightboxTriggers.forEach(trigger => {
                 trigger.addEventListener('click', (e) => {
                     e.preventDefault();
                     openLightbox(trigger.getAttribute('data-lb'));
