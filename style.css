@@ -1,0 +1,408 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        background-color: #09090b;
+        color: #fafafa;
+        overflow-x: hidden;
+        cursor: none;
+    }
+
+    ::selection { background-color: #ccff00; color: #09090b; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #09090b; border-left: 1px solid #27272a; }
+    ::-webkit-scrollbar-thumb { background: #ccff00; border: 2px solid #09090b; border-radius: 10px; }
+}
+
+@layer components {
+    /* --- Noise & Scanlines Overlay --- */
+    .noise {
+        position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+    .scanlines {
+        position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.1;
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+        background-size: 100% 4px;
+        animation: scan 10s linear infinite;
+    }
+    @keyframes scan {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 400px; }
+    }
+
+    /* --- Animated Background Elements --- */
+    .dot-grid {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.2;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: pan-grid 30s linear infinite;
+    }
+    @keyframes pan-grid {
+        0% { background-position: 0px 0px; }
+        100% { background-position: 40px 40px; }
+    }
+
+    .ambient-orb {
+        position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.15; z-index: 0; pointer-events: none;
+        animation: orb-float 20s ease-in-out infinite alternate;
+    }
+    .orb-lime { background: #ccff00; width: 40vw; height: 40vw; top: -10%; left: -10%; }
+    .orb-pink { background: #ff00ff; width: 30vw; height: 30vw; bottom: 10%; right: -10%; animation-delay: -7s; }
+    .orb-blue { background: #00e5ff; width: 35vw; height: 35vw; top: 40%; left: 30%; animation-delay: -14s; }
+    @keyframes orb-float {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(5vw, 5vh) scale(1.2); }
+    }
+
+    /* --- Dynamic Cursor --- */
+    #cursor-follower {
+        position: fixed; top: 0; left: 0;
+        width: 300px; height: 300px;
+        background: radial-gradient(circle, rgba(204,255,0,0.15) 0%, rgba(0,0,0,0) 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 100;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, background 0.3s;
+    }
+    .cursor-dot {
+        position: fixed; top: 0; left: 0; width: 12px; height: 12px;
+        background-color: #ccff00; border-radius: 50%;
+        transform: translate(-50%, -50%); pointer-events: none; z-index: 100000;
+        mix-blend-mode: difference;
+        transition: transform 0.1s;
+    }
+    body.hovering .cursor-dot { transform: translate(-50%, -50%) scale(3); background-color: #ff00ff; }
+    body.grabbing .cursor-dot { transform: translate(-50%, -50%) scale(1.5); background-color: #00e5ff; }
+
+    /* --- Loud Loading Screen --- */
+    #loader {
+        position: fixed; inset: 0; background-color: #09090b; z-index: 9999;
+        display: flex; justify-content: center; align-items: center; overflow: hidden;
+    }
+    #loader-text {
+        font-size: 10vw; font-weight: 800; color: #ccff00;
+        transition: transform 0.1s ease;
+    }
+
+    /* --- Neo-Brutalist Cards --- */
+    .neo-card {
+        background-color: #18181b;
+        border: 2px solid #3f3f46;
+        border-radius: 24px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        z-index: 10;
+    }
+    .neo-card:hover {
+        transform: translateY(-8px) rotate(-1deg);
+        border-color: #fafafa;
+        box-shadow: 8px 8px 0px 0px rgba(250, 250, 250, 1);
+        z-index: 20;
+    }
+    .neo-card.lime:hover { border-color: #ccff00; box-shadow: 8px 8px 0px 0px rgba(204, 255, 0, 1); }
+    .neo-card.pink:hover { border-color: #ff00ff; box-shadow: 8px 8px 0px 0px rgba(255, 0, 255, 1); }
+    .neo-card.blue:hover { border-color: #00e5ff; box-shadow: 8px 8px 0px 0px rgba(0, 229, 255, 1); }
+
+    /* --- Draggable Code Windows --- */
+    .draggable-window {
+        position: absolute;
+        width: 320px;
+        background: rgba(24, 24, 27, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 2px solid #3f3f46;
+        border-radius: 12px;
+        user-select: none;
+        z-index: 20;
+        box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.5);
+        transition: border-color 0.2s, transform 0.1s;
+    }
+    .draggable-window:hover { border-color: #ccff00; }
+    .window-header {
+        background: #27272a; padding: 8px 12px; border-bottom: 2px solid #3f3f46;
+        display: flex; gap: 6px; border-radius: 10px 10px 0 0;
+        cursor: grab; /* Only the header is draggable now */
+    }
+    .window-header:active { cursor: grabbing; }
+    .window-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .window-body { 
+        padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.75rem; 
+        color: #a1a1aa; line-height: 1.6; height: 160px; overflow-y: auto;
+        scrollbar-width: none;
+    }
+    .window-body::-webkit-scrollbar { display: none; }
+    
+    /* Terminal Input Styling */
+    .term-input-line { display: flex; gap: 8px; margin-top: 4px; }
+    .term-input {
+        background: transparent; border: none; outline: none; color: #fafafa;
+        font-family: 'Space Mono', monospace; width: 100%; font-size: 0.75rem;
+    }
+
+    /* --- Magnetic Buttons --- */
+    .magnetic-wrap {
+        position: relative;
+        display: inline-block;
+    }
+    .magnetic-btn {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        will-change: transform;
+    }
+
+    /* --- Scrolling Marquee --- */
+    .marquee-wrapper {
+        background: #ccff00; color: #09090b; padding: 1rem 0;
+        border-top: 4px solid #fafafa; border-bottom: 4px solid #fafafa;
+        transform: rotate(-2deg) scale(1.05);
+        position: relative; z-index: 30;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .marquee-inner { display: flex; white-space: nowrap; width: 200vw; }
+    .marquee-content { font-family: 'Bricolage Grotesque', sans-serif; font-size: 2rem; font-weight: 800; text-transform: uppercase; }
+
+    /* --- Spring Reveal Animations --- */
+    .spring-up {
+        opacity: 0; transform: translateY(80px) scale(0.9);
+        transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .spring-up.active { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* --- Cool Pill Tags --- */
+    .pill {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        padding: 0.4rem 1rem; border-radius: 999px;
+        font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700;
+        text-transform: uppercase; border: 2px solid #3f3f46;
+        background: #09090b; color: #fafafa;
+        transition: all 0.2s;
+    }
+    .neo-card:hover .pill { border-color: currentColor; }
+
+    /* --- Hollow Text for 3D Shadow Effect --- */
+    .hollow-text {
+        color: transparent;
+        -webkit-text-stroke: 2px #fafafa;
+        transition: text-shadow 0.1s ease-out;
+    }
+
+    /* --- EASTER EGG: System Crash Animation --- */
+    .system-crash {
+        animation: glitch-crash 0.2s infinite;
+        filter: invert(1) hue-rotate(180deg) saturate(300%) contrast(200%);
+        background-color: #ff0000 !important;
+    }
+    @keyframes glitch-crash {
+        0% { transform: translate(0, 0) skew(0deg); }
+        20% { transform: translate(-10px, 10px) skew(5deg); }
+        40% { transform: translate(10px, -10px) skew(-5deg); }
+        60% { transform: translate(-10px, -10px) skew(5deg); }
+        80% { transform: translate(10px, 10px) skew(-5deg); }
+        100% { transform: translate(0, 0) skew(0deg); }
+    }
+
+    /* Matrix Canvas */
+    #matrix-canvas {
+        position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 1s;
+    }
+    .matrix-active #matrix-canvas { opacity: 0.4; }
+
+    /* --- GUI OS Easter Egg (UPDATED) --- */
+    .gta-cursor {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><polygon points="2,2 10,26 14,16 26,12" fill="%23000000" stroke="%23FFFFFF" stroke-width="2"/></svg>') 2 2, auto !important;
+    }
+    .gta-cursor .hover-trigger, .gta-cursor .os-icon, .gta-cursor .dock-item, .gta-cursor .os-ctrl, .gta-cursor a {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M11 2c-1.1 0-2 .9-2 2v7H8c-1.1 0-2 .9-2 2v1h-1c-1.1 0-2 .9-2 2v6c0 3.3 2.7 6 6 6h6c3.3 0 6-2.7 6-6v-6c0-1.1-.9-2-2-2h-1v-1c0-1.1-.9-2-2-2h-1V9c0-1.1-.9-2-2-2h-1V4c0-1.1-.9-2-2-2z" fill="%23000000" stroke="%23FFFFFF" stroke-width="2"/></svg>') 10 2, pointer !important;
+    }
+
+    #gui-os {
+        position: fixed; inset: 0; z-index: 99999;
+        background: #09090b;
+        display: none;
+        opacity: 0; transform: scale(0.95);
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+    }
+    #gui-os.booted { display: block; }
+    #gui-os.active { opacity: 1; transform: scale(1); }
+    
+    /* Desktop Windows & macOS Top Bar */
+    .os-bg { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(204,255,0,0.1), #09090b 80%); z-index: 1; }
+    .os-top-bar {
+        position: absolute; top: 0; left: 0; width: 100%; height: 28px; background: rgba(24,24,27,0.7);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 100;
+        display: flex; justify-content: space-between; align-items: center; padding: 0 16px; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #fafafa;
+    }
+    .mobile-status-bar { display: none; }
+    .dynamic-island { display: none; }
+    .mobile-home-bar { display: none; }
+    
+    .desktop-icons { position: relative; z-index: 10; padding: 40px 30px; display: flex; flex-direction: column; gap: 30px; width: 120px; }
+    .os-icon { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; padding: 10px; border-radius: 8px; border: 1px solid transparent; transition: all 0.2s; }
+    .os-icon:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+    .os-icon .icon-emoji { font-size: 3rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
+    .os-icon .icon-label { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #fafafa; text-shadow: 0 1px 3px rgba(0,0,0,0.8); background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 4px; text-align: center; }
+
+    .os-dock { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: rgba(24,24,27,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 10px 20px; display: flex; gap: 16px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .dock-item { width: 48px; height: 48px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+    .dock-item:hover { transform: translateY(-10px) scale(1.1); background: rgba(255,255,255,0.1); border-color: #ccff00; }
+    
+    .os-window {
+        position: absolute; width: min(600px, 90vw); height: 400px;
+        background: rgba(24,24,27,0.85); backdrop-filter: blur(16px); border: 1px solid #3f3f46;
+        border-radius: 12px; display: none; flex-direction: column; overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5); z-index: 50;
+    }
+    .os-window.active { display: flex; }
+    .os-window-header { background: #27272a; padding: 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3f3f46; cursor: grab; }
+    .os-window-header:active { cursor: grabbing; }
+    .os-window-title { font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #a1a1aa; pointer-events: none; }
+    .os-window-controls { display: flex; gap: 6px; }
+    .os-ctrl { width: 12px; height: 12px; border-radius: 50%; }
+    .os-ctrl.close { background: #ef4444; }
+    .os-ctrl.min { background: #eab308; }
+    .os-ctrl.max { background: #22c55e; }
+    .os-window-body { padding: 20px; flex-grow: 1; overflow-y: auto; color: #fafafa; font-family: 'Space Mono', monospace; font-size: 0.85rem; position: relative; }
+
+    /* Mobile iOS Style Modifications */
+    @media (max-width: 768px) {
+        .draggable-window { display: none !important; }
+        .marquee-wrapper { padding: 1.5rem 0; transform: rotate(-3deg) scale(1.05); }
+        .marquee-content { font-size: 3rem; }
+        
+        .os-top-bar { display: none; }
+        .mobile-status-bar {
+            display: flex; position: absolute; top: 0; left: 0; width: 100%; height: 44px; padding: 0 24px;
+            justify-content: space-between; align-items: center; z-index: 100; font-family: sans-serif; font-size: 14px; font-weight: bold; color: white;
+        }
+        .dynamic-island {
+            display: block; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+            width: 120px; height: 30px; background: black; border-radius: 20px; z-index: 101;
+        }
+        .desktop-icons {
+            flex-direction: row; flex-wrap: wrap; padding: 80px 20px 20px; gap: 20px; justify-content: flex-start; width: 100%;
+        }
+        .os-icon { width: calc(25% - 15px); padding: 0; }
+        .os-icon .icon-emoji { font-size: 2.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 12px; border-radius: 18px; width: 64px; height: 64px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .os-icon .icon-label { background: transparent; margin-top: 4px; }
+        .os-dock { width: 90%; bottom: 20px; border-radius: 30px; padding: 15px; justify-content: space-around; }
+        
+        .os-window {
+            width: 100% !important; height: 100% !important; top: 0 !important; left: 0 !important;
+            border-radius: 0; transform: translateY(100%) !important; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .os-window.active { transform: translateY(0) !important; }
+        .os-window-header { padding-top: 50px; justify-content: center; background: rgba(24,24,27,0.9); }
+        .os-window-controls { display: none; }
+        .os-window-title { font-size: 1rem; }
+        .mobile-home-bar {
+            display: block; position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%);
+            width: 140px; height: 5px; background: white; border-radius: 10px; z-index: 200; cursor: pointer;
+        }
+    }
+
+    /* --- Certs Section: Toggle & Panels --- */
+    .certs-panel {
+        display: none;
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .certs-panel.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .certs-panel.fade-out {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    /* Pill Toggle Wrap */
+    .certs-toggle-wrap {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        background: #18181b;
+        border: 2px solid #3f3f46;
+        border-radius: 999px;
+        padding: 4px;
+        gap: 0;
+        box-shadow: 4px 4px 0 0 rgba(0,0,0,0.5);
+        overflow: hidden;
+    }
+    .certs-toggle-slider {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        height: calc(100% - 8px);
+        border-radius: 999px;
+        background: #ccff00;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 0;
+        box-shadow: 0 0 16px rgba(204, 255, 0, 0.5);
+    }
+    .certs-toggle-btn {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: none;
+        background: transparent;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: lowercase;
+        color: #71717a;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+    }
+    .certs-toggle-btn .toggle-icon {
+        font-size: 0.9rem;
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .certs-toggle-btn.active {
+        color: #09090b;
+    }
+    .certs-toggle-btn:hover:not(.active) {
+        color: #d4d4d8;
+    }
+    .certs-toggle-btn.active .toggle-icon {
+        transform: scale(1.2) rotate(-5deg);
+    }
+
+    /* Certifications mode: slider turns pink */
+    .certs-toggle-wrap.mode-certifications .certs-toggle-slider {
+        background: #ff00ff;
+        box-shadow: 0 0 16px rgba(255, 0, 255, 0.5);
+    }
+    .certs-toggle-wrap.mode-certifications .certs-toggle-btn.active {
+        color: #09090b;
+    }
+}
+
+/* --- Custom Scrollbar for Vaults --- */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #18181b;
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ccff00;
+}

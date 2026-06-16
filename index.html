@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rishit tandon // dev</title>
+    
+    <!-- Gen Z / Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="antialiased selection:bg-neonLime selection:text-dark relative">
+
+    <!-- Matrix Canvas (Hidden until triggered) -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Animated Background Elements -->
+    <div class="dot-grid"></div>
+    <div class="ambient-orb orb-lime"></div>
+    <div class="ambient-orb orb-pink"></div>
+    <div class="ambient-orb orb-blue"></div>
+
+    <div class="noise"></div>
+    <div id="cursor-follower"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Hype Loader Screen -->
+    <div id="loader">
+        <div id="loader-text">0%</div>
+    </div>
+
+    <!-- Floating Nav -->
+    <nav class="fixed top-6 w-full z-50 flex justify-center spring-up delay-300">
+        <div class="bg-cardBg/80 backdrop-blur-xl border-2 border-zinc-700 rounded-full px-6 py-3 flex items-center gap-4 md:gap-8 font-mono text-sm font-bold shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] flex-wrap justify-center">
+            <a href="#about" class="hover:text-neonLime transition-colors hover-trigger">home</a>
+            <a href="#edu" class="hover:text-white transition-colors hover-trigger">edu</a>
+            <a href="#wins" class="hover:text-neonPink transition-colors hover-trigger">wins</a>
+            <a href="#exp" class="hover:text-neonBlue transition-colors hover-trigger">xp</a>
+            <a href="#skills" class="hover:text-neonLime transition-colors hover-trigger">skills</a>
+            <a href="#projects" class="hover:text-neonPink transition-colors hover-trigger">builds</a>
+            <a href="#certs" class="hover:text-white transition-colors hover-trigger">certs</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 opacity-0 transition-opacity duration-700" id="main-content">
+        
+        <!-- HERO SECTION (INTERACTIVE PLAYGROUND) -->
+        <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden" id="about">
+            
+            <!-- Cinematic Scanlines -->
+            <div class="scanlines"></div>
+
+            <!-- Draggable Interactive Terminal -->
+            <div class="draggable-window hover-trigger" style="top: 15%; left: 5%;">
+                <div class="window-header">
+                    <div class="window-dot bg-red-500"></div>
+                    <div class="window-dot bg-yellow-500"></div>
+                    <div class="window-dot bg-green-500"></div>
+                    <div class="ml-2 font-mono text-[10px] text-zinc-400 mt-0.5 pointer-events-none">terminal.exe</div>
+                </div>
+                <div class="window-body text-left" id="term-container" onclick="document.getElementById('term-input').focus()">
+                    <div id="term-history">
+                        <span class="text-neonLime">rishit@sys</span>:~ $ echo "hello world"<br>
+                        <span class="text-white">hello world</span><br>
+                        <span class="text-neonBlue">> type 'help' for cmds.</span><br>
+                    </div>
+                    <div class="term-input-line">
+                        <span class="text-neonLime">rishit@sys</span>:~ $
+                        <input type="text" id="term-input" class="term-input hover-trigger" autocomplete="off" spellcheck="false" autofocus>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Draggable Static Code Window -->
+            <div class="draggable-window hover-trigger" style="bottom: 20%; right: 5%; width: 260px;">
+                <div class="window-header">
+                    <div class="window-dot bg-red-500"></div>
+                    <div class="window-dot bg-yellow-500"></div>
+                    <div class="window-dot bg-green-500"></div>
+                    <div class="ml-2 font-mono text-[10px] text-zinc-400 mt-0.5 pointer-events-none">sys_status.js</div>
+                </div>
+                <div class="window-body text-left pointer-events-none whitespace-nowrap">
+                    <span class="text-neonPink">const</span> status = { <br>
+                    &nbsp;&nbsp;brain: <span class="text-neonLime">"active"</span>, <br>
+                    &nbsp;&nbsp;coffee: <span class="text-neonBlue">"required"</span>, <br>
+                    &nbsp;&nbsp;hackathons: <span class="text-neonLime">"won"</span> <br>
+                    }; <br>
+                    <br>
+                    <span class="text-zinc-500">// hint: try typing 'matrix' </span><br>
+                    <span class="text-zinc-500">// or 'crash' in the terminal</span>
+                </div>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-neonLime bg-neonLime/10 text-neonLime font-mono text-xs font-bold mb-6 spring-up hover-trigger shadow-[0_0_15px_rgba(204,255,0,0.3)] relative z-10" style="transition-delay: 0.1s;">
+                <span class="w-2 h-2 rounded-full bg-neonLime animate-pulse"></span> status: open to work
+            </div>
+
+            <!-- Reactive 3D Chromatic Text -->
+            <h1 class="font-sans text-[18vw] md:text-[12vw] font-extrabold leading-none tracking-tighter uppercase spring-up relative z-10 hollow-text hover-trigger" style="transition-delay: 0.2s;" id="hero-name">
+                RISHIT<br>TANDON
+            </h1>
+            
+            <p class="font-mono text-lg md:text-xl text-zinc-400 max-w-2xl mt-8 spring-up relative z-10 pointer-events-none bg-dark/50 backdrop-blur-sm px-4 py-2 rounded-xl" style="transition-delay: 0.3s;">
+                3rd year cs dev building intelligent systems. <br>
+                i write code that writes code, build robots, and win hackathons. <br>
+            </p>
+
+            <!-- Magnetic Buttons -->
+            <div class="mt-12 flex flex-col sm:flex-row gap-6 spring-up relative z-10" style="transition-delay: 0.4s;">
+                <div class="magnetic-wrap">
+                    <a href="#projects" class="magnetic-btn hover-trigger px-8 py-4 bg-neonLime text-dark font-sans font-bold text-xl rounded-2xl border-2 border-neonLime shadow-brutal hover:shadow-[8px_8px_0_0_rgba(250,250,250,1)] hover:border-white transition-shadow whitespace-nowrap">
+                        see my sh*t ↓
+                    </a>
+                </div>
+                <div class="magnetic-wrap">
+                    <a href="https://github.com/RishitTandon7" target="_blank" class="magnetic-btn hover-trigger px-8 py-4 bg-cardBg text-light font-sans font-bold text-xl rounded-2xl border-2 border-zinc-700 shadow-brutal-white hover:border-neonBlue transition-shadow whitespace-nowrap">
+                        github ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loud Marquee -->
+        <div class="marquee-wrapper hover-trigger cursor-pointer">
+            <div class="marquee-inner animate-marquee">
+                <div class="marquee-content">
+                    BUILDING NEXT-GEN AI • DEPLOYING IOT SYSTEMS • FULLSTACK ARCHITECTURE • WINNING HACKATHONS • 
+                    BUILDING NEXT-GEN AI • DEPLOYING IOT SYSTEMS • FULLSTACK ARCHITECTURE • WINNING HACKATHONS • 
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <section class="max-w-[1400px] mx-auto px-6 py-32 border-b-2 border-dashed border-zinc-800" id="edu">
+            <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase mb-12 spring-up flex items-center gap-4">
+                <span class="text-white animate-spin-slow">❋</span> edu.
+            </h2>
+            <div class="space-y-6 max-w-4xl">
+                <div class="neo-card p-8 hover-trigger spring-up group border-zinc-700 hover:border-white transition-colors duration-300">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-6 border-b-2 border-zinc-800 pb-6 gap-4">
+                        <div>
+                            <h3 class="font-sans text-3xl font-bold uppercase group-hover:text-white transition-colors">B.Tech Computer Science</h3>
+                            <div class="font-mono text-zinc-400 text-base mt-2">SRM Institute of Science and Technology</div>
+                        </div>
+                        <span class="pill group-hover:border-white group-hover:text-white whitespace-nowrap">2023 - 2027</span>
+                    </div>
+                    <p class="font-mono text-base text-zinc-400 leading-relaxed">
+                        <span class="text-white font-bold">CGPA:</span> 9.2/10 (Expected)<br><br>
+                        <span class="text-white font-bold">Coursework:</span> Data Structures, Algorithms, Machine Learning, Database Management Systems, Operating Systems, Computer Networks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WINS IN HACKATHONS -->
+        <section class="max-w-[1400px] mx-auto px-6 py-32 border-b-2 border-dashed border-zinc-800" id="wins">
+            <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase mb-12 spring-up flex items-center gap-4">
+                <span class="text-neonPink animate-spin-slow">❋</span> wins.
+            </h2>
+            <div class="neo-card pink p-12 flex flex-col justify-center items-center text-center hover-trigger spring-up group bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800 to-cardBg max-w-4xl mx-auto">
+                <div class="font-sans text-8xl md:text-9xl font-extrabold text-neonPink mb-4 group-hover:scale-110 transition-transform">1st</div>
+                <div class="font-mono font-bold text-2xl uppercase tracking-widest text-zinc-300">place winner</div>
+                <div class="font-mono text-base text-zinc-400 mt-6 border-t-2 border-zinc-800 pt-6 w-full max-w-md space-y-2">
+                    <div>sutd smorphi (singapore)</div>
+                    <div>cismohack (national)</div>
+                    <div>ml project expo</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="max-w-[1400px] mx-auto px-6 py-32 border-b-2 border-dashed border-zinc-800" id="exp">
+            <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase mb-12 spring-up flex items-center gap-4">
+                <span class="text-neonBlue animate-spin-slow">❋</span> xp.
+            </h2>
+            <div class="space-y-8 max-w-5xl">
+                <!-- Role 1 -->
+                <div class="neo-card blue p-8 hover-trigger spring-up group">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-6 border-b-2 border-zinc-800 pb-6 gap-4">
+                        <div>
+                            <h3 class="font-sans text-3xl font-bold uppercase group-hover:text-neonBlue transition-colors">research intern</h3>
+                            <div class="font-mono text-zinc-400 text-base mt-2">@ srm ist x nidm</div>
+                        </div>
+                        <span class="pill group-hover:border-neonBlue group-hover:text-neonBlue whitespace-nowrap">oct 23 - present</span>
+                    </div>
+                    <ul class="font-mono text-base text-zinc-400 space-y-4 list-none">
+                        <li class="flex items-start"><span class="text-neonBlue mr-3 font-bold mt-1">></span> <span>spearheading r&d for glacial lake outburst flood (glof) detection using deep learning on satellite imagery.</span></li>
+                        <li class="flex items-start"><span class="text-neonBlue mr-3 font-bold mt-1">></span> <span>optimized cnns for geospatial data to reduce alert latency by 40%.</span></li>
+                    </ul>
+                </div>
+                <!-- Role 2 -->
+                <div class="neo-card pink p-8 hover-trigger spring-up group">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-6 border-b-2 border-zinc-800 pb-6 gap-4">
+                        <div>
+                            <h3 class="font-sans text-3xl font-bold uppercase group-hover:text-neonPink transition-colors">software dev intern</h3>
+                            <div class="font-mono text-zinc-400 text-base mt-2">@ dgtl innovations</div>
+                        </div>
+                        <span class="pill group-hover:border-neonPink group-hover:text-neonPink whitespace-nowrap">may 23 - jul 23</span>
+                    </div>
+                    <ul class="font-mono text-base text-zinc-400 space-y-4 list-none">
+                        <li class="flex items-start"><span class="text-neonPink mr-3 font-bold mt-1">></span> <span>engineered high-performance REST APIs using python and mysql, reducing query response time by 20%.</span></li>
+                        <li class="flex items-start"><span class="text-neonPink mr-3 font-bold mt-1">></span> <span>designed responsive frontend components, increasing retention by 15%.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="max-w-[1400px] mx-auto px-6 py-32 border-b-2 border-dashed border-zinc-800" id="skills">
+            <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase mb-12 spring-up flex items-center gap-4">
+                <span class="text-neonLime animate-spin-slow">❋</span> skills.
+            </h2>
+            <div class="neo-card lime p-10 hover-trigger spring-up group max-w-5xl">
+                <div class="space-y-10">
+                    <!-- Skill Category 1 -->
+                    <div>
+                        <h4 class="font-mono text-neonLime uppercase font-bold text-base mb-4 flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-neonLime"></span> languages</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="pill text-lg hover:text-dark hover:bg-neonLime hover:border-neonLime transition-all">Python</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonLime hover:border-neonLime transition-all">JavaScript</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonLime hover:border-neonLime transition-all">C++</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonLime hover:border-neonLime transition-all">C#</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonLime hover:border-neonLime transition-all">SQL</span>
+                        </div>
+                    </div>
+                    <!-- Skill Category 2 -->
+                    <div>
+                        <h4 class="font-mono text-neonPink uppercase font-bold text-base mb-4 flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-neonPink"></span> frameworks & libs</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">React</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">Next.js</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">FastAPI</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">Node.js</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">Tailwind CSS</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">TensorFlow</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonPink hover:border-neonPink transition-all">PyTorch</span>
+                        </div>
+                    </div>
+                    <!-- Skill Category 3 -->
+                    <div>
+                        <h4 class="font-mono text-neonBlue uppercase font-bold text-base mb-4 flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-neonBlue"></span> tools & cloud</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="pill text-lg hover:text-dark hover:bg-neonBlue hover:border-neonBlue transition-all">Git</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonBlue hover:border-neonBlue transition-all">Docker</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonBlue hover:border-neonBlue transition-all">AWS</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonBlue hover:border-neonBlue transition-all">Supabase</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonBlue hover:border-neonBlue transition-all">Unity 3D</span>
+                            <span class="pill text-lg hover:text-dark hover:bg-neonBlue hover:border-neonBlue transition-all">ESP32</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="max-w-[1400px] mx-auto px-6 py-32 border-b-2 border-dashed border-zinc-800" id="projects">
+            <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase mb-12 spring-up flex items-center gap-4">
+                <span class="text-neonLime animate-spin-slow">❋</span> builds.
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Project 1 (Large, Spans 7 cols) -->
+                <div class="neo-card lime col-span-1 md:col-span-7 p-8 md:p-12 min-h-[400px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">next.js</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">fastapi</span>
+                            <span class="pill group-hover:text-neonLime group-hover:border-neonLime">aws</span>
+                        </div>
+                        <span class="font-mono text-zinc-500 font-bold group-hover:text-neonLime transition-colors">2024</span>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-5xl md:text-6xl lg:text-7xl font-bold mb-4 uppercase leading-none group-hover:text-neonLime transition-colors text-balance">agent marketplace</h3>
+                        <p class="font-mono text-zinc-400 text-sm md:text-base max-w-xl">
+                            full-stack ai agent marketplace. devs discover, purchase, and consume specialized ai agents via auto-provisioned REST API keys. built w/ supabase multi-tenant auth & razorpay webhooks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Medium, Spans 5 cols) -->
+                <div class="neo-card blue col-span-1 md:col-span-5 p-8 min-h-[400px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">ml</span>
+                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">esp32</span>
+                        <span class="pill group-hover:text-neonBlue group-hover:border-neonBlue">eeg</span>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-4xl font-bold mb-4 uppercase leading-none group-hover:text-neonBlue transition-colors">neurovibe bci</h3>
+                        <p class="font-mono text-zinc-400 text-sm">
+                            brain-computer interface system using eeg signals to control a wheelchair in real-time. trained a random forest classifier to decode mental commands w/ low latency.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Medium, Spans 7 cols) -->
+                <div class="neo-card col-span-1 md:col-span-7 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 font-sans text-[200px] font-bold leading-none pointer-events-none transition-transform group-hover:rotate-12">🌐</div>
+                    <div class="flex flex-wrap gap-2 mb-8 relative z-10">
+                        <span class="pill group-hover:text-white group-hover:border-white">unity 3d</span>
+                        <span class="pill group-hover:text-white group-hover:border-white">c#</span>
+                        <span class="pill group-hover:text-white group-hover:border-white">iot apis</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="font-sans text-4xl font-bold mb-4 uppercase leading-none">multiverse digital twin</h3>
+                        <p class="font-mono text-zinc-400 text-sm max-w-lg">
+                            real-time digital twin synchronizing live telemetry from 20+ esp-based nodes (100+ sensor data points) into a unity 3d environment w/ bi-directional api control.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Small, Spans 5 cols) -->
+                <div class="neo-card pink col-span-1 md:col-span-5 p-8 min-h-[350px] flex flex-col justify-between hover-trigger spring-up group">
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">react</span>
+                        <span class="pill group-hover:text-neonPink group-hover:border-neonPink">gemini api</span>
+                    </div>
+                    <div>
+                        <h3 class="font-sans text-3xl font-bold mb-2 uppercase group-hover:text-neonPink transition-colors">linkedout ai</h3>
+                        <p class="font-mono text-zinc-400 text-xs">
+                            pwa w/ linkedin oauth. agentic caption pipeline using gemini api w/ persona prompts & python queuing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATES -->
+        <section class="max-w-[1400px] mx-auto px-6 py-32" id="certs">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6 spring-up">
+                <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase flex items-center gap-4">
+                    <span class="text-neonLime animate-spin-slow">❋</span>
+                    <span id="certs-heading">certs.</span>
+                </h2>
+                <!-- Unique Toggle -->
+                <div class="certs-toggle-wrap" id="certs-toggle" role="tablist" aria-label="Certificate type toggle">
+                    <div class="certs-toggle-slider" id="certs-toggle-slider"></div>
+                    <button class="certs-toggle-btn active" id="btn-certificates" role="tab" aria-selected="true" onclick="switchCerts('certificates')">
+                        <span class="toggle-icon">📜</span>
+                        certificates
+                    </button>
+                    <button class="certs-toggle-btn" id="btn-certifications" role="tab" aria-selected="false" onclick="switchCerts('certifications')">
+                        <span class="toggle-icon">🏅</span>
+                        certifications
+                    </button>
+                </div>
+            </div>
+
+            <!-- CERTIFICATES PANEL -->
+            <div id="panel-certificates" class="certs-panel active">
+                <div class="neo-card lime p-8 hover-trigger group">
+                    <!-- Added Custom Scrollbar & Max Height for Option 1 -->
+                    <ul class="font-mono text-base text-zinc-300 space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=Machine+Learning&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Machine Learning</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">NPTEL IIT Kharagpur</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=Python+DS+%26+AI&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Python for DS &amp; AI</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">IBM</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=Unity+Essentials&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Unity Essentials</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Unity</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ccff00?text=DBMS&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">DBMS</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Udemy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CERTIFICATIONS PANEL -->
+            <div id="panel-certifications" class="certs-panel">
+                <div class="neo-card pink p-8 hover-trigger group">
+                    <ul class="font-mono text-base text-zinc-300 space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ff00ff?text=NPTEL+Elite&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonPink flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonPink group-hover/item:font-bold transition-all">NPTEL Elite — Machine Learning</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">IIT Kharagpur</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ff00ff?text=IBM+Data+Science&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonPink flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonPink group-hover/item:font-bold transition-all">IBM Data Science Professional</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Coursera</span>
+                        </li>
+                        <li class="cert-item flex items-center justify-between group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ff00ff?text=Unity+Certified&font=monospace">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-neonPink flex-shrink-0"></span>
+                                <span class="group-hover/item:text-neonPink group-hover/item:font-bold transition-all">Unity Certified Associate</span>
+                            </div>
+                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Unity</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER / CTA -->
+        <footer class="bg-neonLime text-dark py-32 px-6 text-center border-t-[10px] border-zinc-800 relative overflow-hidden hover-trigger">
+            <!-- Massive background text -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                <span class="font-sans text-[30vw] font-black leading-none">CODE</span>
+            </div>
+
+            <div class="relative z-10 spring-up">
+                <h2 class="font-sans text-6xl md:text-8xl font-extrabold uppercase mb-8">let's build<br>something crazy.</h2>
+                <div class="flex flex-wrap justify-center gap-6 font-mono font-bold text-xl uppercase">
+                    <a href="mailto:rishit.tandon.7@gmail.com" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">email ↗</a>
+                    <a href="https://github.com/RishitTandon7" target="_blank" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">github ↗</a>
+                    <a href="https://rishit-tandon.netlify.app" target="_blank" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">resume ↗</a>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-6 left-6 font-mono text-xs font-bold uppercase">
+                © 2026 rishit tandon.
+            </div>
+            <div class="absolute bottom-6 right-6 font-mono text-xs font-bold uppercase">
+                no templates allowed.
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Floating Image Preview Element -->
+    <img id="cert-preview-img" src="" class="fixed top-0 left-0 pointer-events-none z-[1000] opacity-0 transition-opacity duration-300 w-64 md:w-80 h-auto rounded-xl border-4 object-cover" alt="Certificate Preview" style="will-change: transform, opacity;" />
+
+    <!-- GUI OS Overlay (Hidden by Default) -->
+    <div id="gui-os">
+        <div class="os-bg"></div>
+        <div class="noise"></div>
+        
+        <!-- Desktop: macOS Top Bar -->
+        <div class="os-top-bar">
+            <div class="flex items-center gap-4">
+                <span class="font-bold"> rishit_os</span>
+                <span class="hover:text-white cursor-pointer transition-colors">File</span>
+                <span class="hover:text-white cursor-pointer transition-colors">Edit</span>
+                <span class="hover:text-white cursor-pointer transition-colors">View</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span>100% 🔋</span>
+                <span class="os-clock">10:00 AM</span>
+            </div>
+        </div>
+
+        <!-- Mobile: iOS Status Bar & Dynamic Island -->
+        <div class="mobile-status-bar">
+            <span class="os-clock">10:00</span>
+            <div class="flex gap-1.5">
+                <span>📶</span>
+                <span>🔋</span>
+            </div>
+        </div>
+        <div class="dynamic-island"></div>
+        
+        <!-- Desktop Icons (Grid on Mobile) -->
+        <div class="desktop-icons">
+            <div class="os-icon hover-trigger" onclick="openOsWindow('projects-win')">
+                <div class="icon-emoji">📁</div>
+                <div class="icon-label">builds</div>
+            </div>
+            <div class="os-icon hover-trigger" onclick="openOsWindow('resume-win')">
+                <div class="icon-emoji">📄</div>
+                <div class="icon-label">resume.pdf</div>
+            </div>
+            <div class="os-icon hover-trigger" onclick="window.location.href='mailto:rishit.tandon.7@gmail.com'">
+                <div class="icon-emoji">✉️</div>
+                <div class="icon-label">email.exe</div>
+            </div>
+        </div>
+
+        <!-- OS Windows -->
+        <div class="os-window" id="projects-win" style="top: 100px; left: 100px;">
+            <div class="os-window-header hover-trigger">
+                <div class="os-window-controls">
+                    <div class="os-ctrl close hover-trigger" onclick="closeOsWindow('projects-win')"></div>
+                    <div class="os-ctrl min"></div>
+                    <div class="os-ctrl max"></div>
+                </div>
+                <div class="os-window-title">~/rishit/builds</div>
+                <div class="w-12 md:block hidden"></div>
+            </div>
+            <div class="os-window-body">
+                <h2 class="text-neonLime text-2xl font-bold mb-4 font-sans uppercase">Deployed Systems</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 border border-zinc-700 rounded-lg hover:border-neonLime transition-colors">
+                        <h3 class="text-neonBlue font-bold mb-1">Agent Marketplace</h3>
+                        <p class="text-xs text-zinc-400">Next.js / FastAPI / AWS</p>
+                    </div>
+                    <div class="p-4 border border-zinc-700 rounded-lg hover:border-neonPink transition-colors">
+                        <h3 class="text-neonPink font-bold mb-1">NeuroVibe BCI</h3>
+                        <p class="text-xs text-zinc-400">ML / ESP32 / EEG</p>
+                    </div>
+                    <div class="p-4 border border-zinc-700 rounded-lg hover:border-white transition-colors">
+                        <h3 class="text-white font-bold mb-1">LinkedOut AI</h3>
+                        <p class="text-xs text-zinc-400">React / Gemini API</p>
+                    </div>
+                    <div class="p-4 border border-zinc-700 rounded-lg hover:border-neonLime transition-colors">
+                        <h3 class="text-neonLime font-bold mb-1">Multiverse Digital Twin</h3>
+                        <p class="text-xs text-zinc-400">Unity 3D / IoT APIs</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Swipe indicator for mobile -->
+            <div class="mobile-home-bar" onclick="closeOsWindow('projects-win')"></div>
+        </div>
+
+        <div class="os-window" id="resume-win" style="top: 150px; left: 150px;">
+            <div class="os-window-header hover-trigger">
+                <div class="os-window-controls">
+                    <div class="os-ctrl close hover-trigger" onclick="closeOsWindow('resume-win')"></div>
+                    <div class="os-ctrl min"></div>
+                    <div class="os-ctrl max"></div>
+                </div>
+                <div class="os-window-title">resume_viewer.exe</div>
+                <div class="w-12 md:block hidden"></div>
+            </div>
+            <div class="os-window-body bg-[#e4e4e7] text-dark font-sans text-sm rounded-b-lg">
+                <h1 class="text-4xl font-black uppercase border-b-4 border-dark pb-2 mb-4">Rishit Tandon</h1>
+                <p class="font-bold mb-2">Third-year Computer Science student (B.Tech, SRM IST, 2027)</p>
+                <p class="mb-4">Specializing in AI/ML, Computer Vision, IoT, and full-stack development. Proven track record of winning national-level hackathons.</p>
+                
+                <h2 class="text-xl font-bold bg-dark text-white px-2 py-1 mb-2 inline-block">Experience</h2>
+                <ul class="list-disc pl-5 mb-6 font-mono text-xs">
+                    <li class="mb-1">Research Intern - ML & Image Processing @ SRM IST x NIDM</li>
+                    <li>Software Development Intern @ DGTL Innovations</li>
+                </ul>
+
+                <a href="https://rishit-tandon.netlify.app" target="_blank" class="text-blue-600 underline font-bold hover-trigger">View Full Document ↗</a>
+            </div>
+            <!-- Swipe indicator for mobile -->
+            <div class="mobile-home-bar" onclick="closeOsWindow('resume-win')"></div>
+        </div>
+
+        <!-- OS Dock -->
+        <div class="os-dock">
+            <div class="dock-item hover-trigger" onclick="shutDownGUI()" title="Shut Down">🔴</div>
+            <div class="w-px h-8 bg-zinc-700 mx-2"></div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('projects-win')">📁</div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('resume-win')">📄</div>
+            <div class="dock-item hover-trigger" onclick="window.open('https://github.com/RishitTandon7', '_blank')">🐙</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Hype Loader ---
+            const loader = document.getElementById('loader');
+            const loaderText = document.getElementById('loader-text');
+            const mainContent = document.getElementById('main-content');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 15) + 3;
+                if(progress > 100) progress = 100;
+                
+                loaderText.innerText = `${progress}%`;
+                // Scale text up as it loads
+                loaderText.style.transform = `scale(${1 + (progress/50)})`;
+
+                if(progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.style.transform = 'translateY(-100%)';
+                        loader.style.transition = 'transform 0.8s cubic-bezier(0.85, 0, 0.15, 1)';
+                        
+                        setTimeout(() => {
+                            mainContent.style.opacity = '1';
+                            initReveals();
+                        }, 300);
+                    }, 400);
+                }
+            }, 50);
+
+            // --- Dynamic Follower Cursor ---
+            const follower = document.getElementById('cursor-follower');
+            const dot = document.querySelector('.cursor-dot');
+            const triggers = document.querySelectorAll('.hover-trigger, a, button, .neo-card');
+
+            let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+            let followerX = window.innerWidth / 2; let followerY = window.innerHeight / 2;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            });
+
+            const animateFollower = () => {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+                requestAnimationFrame(animateFollower);
+            };
+            animateFollower();
+
+            triggers.forEach(t => {
+                t.addEventListener('mouseenter', () => {
+                    document.body.classList.add('hovering');
+                    // Change follower color based on element class for extra juice
+                    if(t.classList.contains('lime')) follower.style.background = 'radial-gradient(circle, rgba(204,255,0,0.2) 0%, rgba(0,0,0,0) 70%)';
+                    else if(t.classList.contains('pink')) follower.style.background = 'radial-gradient(circle, rgba(255,0,255,0.2) 0%, rgba(0,0,0,0) 70%)';
+                    else if(t.classList.contains('blue')) follower.style.background = 'radial-gradient(circle, rgba(0,229,255,0.2) 0%, rgba(0,0,0,0) 70%)';
+                    else follower.style.background = 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%)';
+                });
+                t.addEventListener('mouseleave', () => {
+                    document.body.classList.remove('hovering');
+                    follower.style.background = 'radial-gradient(circle, rgba(204,255,0,0.15) 0%, rgba(0,0,0,0) 70%)';
+                });
+            });
+
+            // --- INTERACTIVE ADDITIONS: Reactive 3D Chromatic Text ---
+            const heroName = document.getElementById('hero-name');
+            window.addEventListener('mousemove', (e) => {
+                const x = e.clientX;
+                const y = e.clientY;
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+
+                // Calculate offset from center (-1 to 1)
+                const xOffset = (x / width - 0.5) * 2;
+                const yOffset = (y / height - 0.5) * 2;
+
+                // Multipliers for depth
+                const depth1 = 8;
+                const depth2 = 16;
+                const depth3 = 24;
+
+                // Apply dynamic text shadow mimicking chromatic aberration 3D
+                heroName.style.textShadow = `
+                    ${-xOffset * depth1}px ${-yOffset * depth1}px 0 #ccff00,
+                    ${-xOffset * depth2}px ${-yOffset * depth2}px 0 #00e5ff,
+                    ${-xOffset * depth3}px ${-yOffset * depth3}px 0 #ff00ff
+                `;
+            });
+
+            // --- INTERACTIVE ADDITIONS: Draggable Windows ---
+            const draggables = document.querySelectorAll('.draggable-window');
+            let zIndexCounter = 100;
+
+            draggables.forEach(el => {
+                let isDragging = false;
+                let startX, startY;
+                let transformX = 0;
+                let transformY = 0;
+                const header = el.querySelector('.window-header');
+
+                const startDrag = (e) => {
+                    isDragging = true;
+                    zIndexCounter++;
+                    el.style.zIndex = zIndexCounter;
+                    document.body.classList.add('grabbing');
+                    
+                    const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                    const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                    
+                    startX = clientX - transformX;
+                    startY = clientY - transformY;
+                };
+
+                const onDrag = (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    
+                    const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                    const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                    
+                    transformX = clientX - startX;
+                    transformY = clientY - startY;
+                    
+                    const rotation = transformX * 0.05;
+                    el.style.transform = `translate(${transformX}px, ${transformY}px) rotate(${rotation}deg)`;
+                };
+
+                const stopDrag = () => {
+                    if(!isDragging) return;
+                    isDragging = false;
+                    document.body.classList.remove('grabbing');
+                    el.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    el.style.transform = `translate(${transformX}px, ${transformY}px) rotate(0deg)`;
+                    
+                    setTimeout(() => { el.style.transition = 'transform 0.1s'; }, 300);
+                };
+
+                // Attach drag only to the header so input fields work
+                if(header) {
+                    header.addEventListener('mousedown', startDrag);
+                    header.addEventListener('touchstart', startDrag, {passive: false});
+                }
+                
+                window.addEventListener('mousemove', onDrag);
+                window.addEventListener('mouseup', stopDrag);
+                window.addEventListener('touchmove', onDrag, {passive: false});
+                window.addEventListener('touchend', stopDrag);
+            });
+
+            // --- EASTER EGGS: Terminal & Matrix Logic ---
+            const termInput = document.getElementById('term-input');
+            const termHistory = document.getElementById('term-history');
+            const matrixCanvas = document.getElementById('matrix-canvas');
+            const ctx = matrixCanvas.getContext('2d');
+            const container = document.getElementById('term-container');
+            let matrixInterval = null;
+
+            function printTerm(text, className = "text-white") {
+                const el = document.createElement('div');
+                el.innerHTML = `<span class="${className}">${text}</span><br>`;
+                termHistory.appendChild(el);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            termInput.addEventListener('keydown', (e) => {
+                if(e.key === 'Enter') {
+                    const cmd = termInput.value.trim().toLowerCase();
+                    printTerm(`rishit@sys:~ $ ${cmd}`, "text-neonLime");
+                    termInput.value = '';
+
+                    switch(cmd) {
+                        case 'help': 
+                            printTerm("> cmds: skills, whoami, matrix, crash, gui, clear", "text-neonBlue"); 
+                            break;
+                        case 'skills': 
+                            printTerm("> Python, React, Next.js, GenAI, Unity, IoT", "text-zinc-400"); 
+                            break;
+                        case 'whoami': 
+                            printTerm("> Rishit Tandon. Builder of things.", "text-neonPink"); 
+                            break;
+                        case 'gui': 
+                            printTerm("> booting rishit_os...", "text-neonPink font-bold"); 
+                            setTimeout(() => { bootGUI(); }, 800);
+                            break;
+                        case 'matrix': 
+                            if(!document.body.classList.contains('matrix-active')) {
+                                document.body.classList.add('matrix-active');
+                                startMatrix();
+                                printTerm("> Welcome to the real world.", "text-neonLime"); 
+                            } else {
+                                document.body.classList.remove('matrix-active');
+                                clearInterval(matrixInterval);
+                                printTerm("> Matrix disabled.", "text-zinc-400");
+                            }
+                            break;
+                        case 'clear': 
+                            termHistory.innerHTML = ''; 
+                            break;
+                        case 'crash':
+                        case 'sudo rm -rf /':
+                            printTerm("> FATAL ERROR: Core dumped.", "text-red-500 font-bold");
+                            document.body.classList.add('system-crash');
+                            setTimeout(() => { document.body.classList.remove('system-crash'); }, 3000);
+                            break;
+                        case '': break;
+                        default: 
+                            printTerm(`> command not found: ${cmd}`, "text-red-400");
+                    }
+                }
+            });
+
+            function startMatrix() {
+                matrixCanvas.width = window.innerWidth;
+                matrixCanvas.height = window.innerHeight;
+                
+                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+";
+                const fontSize = 14;
+                const columns = matrixCanvas.width / fontSize;
+                const drops = [];
+                for(let x = 0; x < columns; x++) drops[x] = 1;
+
+                if(matrixInterval) clearInterval(matrixInterval);
+                
+                matrixInterval = setInterval(() => {
+                    ctx.fillStyle = "rgba(9, 9, 11, 0.05)";
+                    ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                    
+                    ctx.fillStyle = "#ccff00"; // Neon Lime
+                    ctx.font = fontSize + "px monospace";
+                    
+                    for(let i = 0; i < drops.length; i++) {
+                        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                        
+                        if(drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975)
+                            drops[i] = 0;
+                        drops[i]++;
+                    }
+                }, 33);
+            }
+            
+            window.addEventListener('resize', () => {
+                if(document.body.classList.contains('matrix-active')) startMatrix();
+            });
+
+            // --- GUI OS LOGIC (UPDATED) ---
+            const guiOs = document.getElementById('gui-os');
+            // follower and dot are already declared above
+            
+            window.bootGUI = function() {
+                guiOs.classList.add('booted');
+                
+                follower.style.display = 'none';
+                dot.style.display = 'none';
+                document.body.style.cursor = 'auto';
+                guiOs.classList.add('gta-cursor');
+                
+                setTimeout(() => { guiOs.classList.add('active'); }, 50);
+            }
+            
+            window.shutDownGUI = function() {
+                guiOs.classList.remove('active');
+                setTimeout(() => {
+                    guiOs.classList.remove('booted');
+                    guiOs.classList.remove('gta-cursor');
+                    follower.style.display = 'block';
+                    dot.style.display = 'block';
+                    printTerm("> GUI shutdown complete.", "text-zinc-500");
+                }, 500);
+            }
+
+            window.openOsWindow = function(id) {
+                const win = document.getElementById(id);
+                win.classList.add('active');
+                document.querySelectorAll('.os-window').forEach(w => w.style.zIndex = 50);
+                win.style.zIndex = 51;
+            }
+            
+            window.closeOsWindow = function(id) {
+                document.getElementById(id).classList.remove('active');
+            }
+
+            setInterval(() => {
+                const d = new Date();
+                const timeStr = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                document.querySelectorAll('.os-clock').forEach(el => el.innerText = timeStr);
+            }, 1000);
+
+            const osWindows = document.querySelectorAll('.os-window');
+            osWindows.forEach(el => {
+                let isDragging = false;
+                let startX, startY;
+                let transformX = 0, transformY = 0;
+                const header = el.querySelector('.os-window-header');
+
+                const startDrag = (e) => {
+                    if(e.target.classList.contains('os-ctrl') || window.innerWidth <= 768) return; 
+                    isDragging = true;
+                    document.querySelectorAll('.os-window').forEach(w => w.style.zIndex = 50);
+                    el.style.zIndex = 51;
+                    guiOs.classList.add('grabbing');
+                    
+                    const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                    const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                    startX = clientX - transformX;
+                    startY = clientY - transformY;
+                };
+
+                const onDrag = (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                    const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                    transformX = clientX - startX;
+                    transformY = clientY - startY;
+                    el.style.transform = `translate(${transformX}px, ${transformY}px)`;
+                };
+
+                const stopDrag = () => { isDragging = false; guiOs.classList.remove('grabbing'); };
+
+                if(header) {
+                    header.addEventListener('mousedown', startDrag);
+                    header.addEventListener('touchstart', startDrag, {passive: false});
+                }
+                window.addEventListener('mousemove', onDrag);
+                window.addEventListener('mouseup', stopDrag);
+                window.addEventListener('touchmove', onDrag, {passive: false});
+                window.addEventListener('touchend', stopDrag);
+            });
+
+            // --- Magnetic Buttons ---
+            const magnets = document.querySelectorAll('.magnetic-wrap');
+            magnets.forEach(magnet => {
+                const btn = magnet.querySelector('.magnetic-btn');
+                magnet.addEventListener('mousemove', (e) => {
+                    const rect = magnet.getBoundingClientRect();
+                    const h = rect.width / 2;
+                    const w = rect.height / 2;
+                    const x = e.clientX - rect.left - h;
+                    const y = e.clientY - rect.top - w;
+                    
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+                magnet.addEventListener('mouseleave', () => {
+                    btn.style.transform = `translate(0px, 0px)`;
+                });
+            });
+
+            // --- Scroll Reveal Animations ---
+            function initReveals() {
+                const reveals = document.querySelectorAll('.spring-up');
+                const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                reveals.forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('active');
+                    } else {
+                        observer.observe(el);
+                    }
+                });
+            }
+            // --- Certs Toggle Logic ---
+            const certsToggle = document.getElementById('certs-toggle');
+            const certsSlider = document.getElementById('certs-toggle-slider');
+
+            function initCertsSlider() {
+                const activeBtn = document.getElementById('btn-certificates');
+                certsSlider.style.width = activeBtn.offsetWidth + 'px';
+                certsSlider.style.left = activeBtn.offsetLeft + 'px';
+            }
+            // Init after fonts/layout settle
+            setTimeout(initCertsSlider, 150);
+            window.addEventListener('resize', initCertsSlider);
+
+            window.switchCerts = function(mode) {
+                const panels = document.querySelectorAll('.certs-panel');
+                const btns = document.querySelectorAll('.certs-toggle-btn');
+                const heading = document.getElementById('certs-heading');
+                const targetPanel = document.getElementById('panel-' + mode);
+                const targetBtn = document.getElementById('btn-' + mode);
+
+                // Slide the indicator
+                certsSlider.style.width = targetBtn.offsetWidth + 'px';
+                certsSlider.style.left = targetBtn.offsetLeft + 'px';
+
+                // Toggle color mode on wrapper
+                if (mode === 'certifications') {
+                    certsToggle.classList.add('mode-certifications');
+                } else {
+                    certsToggle.classList.remove('mode-certifications');
+                }
+
+                // Swap active button
+                btns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                targetBtn.classList.add('active');
+                targetBtn.setAttribute('aria-selected', 'true');
+
+                // Update heading
+                heading.textContent = mode === 'certifications' ? 'certifications.' : 'certs.';
+
+                // Fade out current panel, then switch
+                const currentPanel = document.querySelector('.certs-panel.active');
+                if (currentPanel && currentPanel !== targetPanel) {
+                    currentPanel.classList.add('fade-out');
+                    setTimeout(() => {
+                        currentPanel.classList.remove('active', 'fade-out');
+                        targetPanel.classList.add('active');
+                    }, 280);
+                } else if (!currentPanel) {
+                    targetPanel.classList.add('active');
+                }
+            };
+
+            // --- Floating Image Preview Logic ---
+            const certItems = document.querySelectorAll('.cert-item');
+            const previewImg = document.getElementById('cert-preview-img');
+            
+            let currentImgSrc = '';
+
+            certItems.forEach(item => {
+                item.addEventListener('mouseenter', (e) => {
+                    const imgSrc = item.getAttribute('data-img');
+                    if(imgSrc && previewImg) {
+                        currentImgSrc = imgSrc;
+                        previewImg.src = imgSrc;
+                        previewImg.style.opacity = '1';
+                        // Add some rotation based on the card color context for extra juice
+                        const parentCard = item.closest('.neo-card');
+                        if(parentCard && parentCard.classList.contains('pink')) {
+                            previewImg.style.borderColor = '#ff00ff';
+                            previewImg.style.boxShadow = '8px 8px 0 0 rgba(255,0,255,1)';
+                            previewImg.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) rotate(2deg)`;
+                        } else {
+                            previewImg.style.borderColor = '#ccff00';
+                            previewImg.style.boxShadow = '8px 8px 0 0 rgba(204,255,0,1)';
+                            previewImg.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) rotate(-2deg)`;
+                        }
+                    }
+                });
+                
+                item.addEventListener('mousemove', (e) => {
+                    if(previewImg.style.opacity === '1') {
+                        // Keep the rotation state from mouseenter
+                        const rot = previewImg.style.transform.includes('rotate(2deg)') ? 'rotate(2deg)' : 'rotate(-2deg)';
+                        previewImg.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) ${rot}`;
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    if(previewImg) {
+                        previewImg.style.opacity = '0';
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
