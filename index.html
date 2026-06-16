@@ -573,343 +573,179 @@
 
         <!-- CERTIFICATES -->
         <section class="max-w-[1400px] mx-auto px-6 py-32" id="certs">
+
             <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6 spring-up">
                 <h2 class="font-sans text-5xl md:text-6xl font-extrabold lowercase flex items-center gap-4">
                     <span class="text-neonLime animate-spin-slow">❋</span>
-                    <span id="certs-heading">certs.</span>
+                    <span id="certs-heading">certs ticker.</span>
                 </h2>
                 <!-- Unique Toggle -->
-                <div class="certs-toggle-wrap" id="certs-toggle" role="tablist" aria-label="Certificate type toggle">
+                <div class="certs-toggle-wrap" id="certs-toggle" role="tablist" aria-label="Certificate view toggle">
                     <div class="certs-toggle-slider" id="certs-toggle-slider"></div>
-                    <button class="certs-toggle-btn active" id="btn-certificates" role="tab" aria-selected="true" onclick="switchCerts('certificates')">
-                        <span class="toggle-icon">📜</span>
-                        certificates
+                    <button class="certs-toggle-btn active" id="btn-ticker" role="tab" aria-selected="true" onclick="switchCertsView('ticker')">
+                        <span class="toggle-icon">🎞️</span>
+                        ticker view
                     </button>
-                    <button class="certs-toggle-btn" id="btn-certifications" role="tab" aria-selected="false" onclick="switchCerts('certifications')">
-                        <span class="toggle-icon">🏅</span>
-                        certifications
+                    <button class="certs-toggle-btn" id="btn-gallery" role="tab" aria-selected="false" onclick="switchCertsView('gallery')">
+                        <span class="toggle-icon">🖼️</span>
+                        gallery view
                     </button>
                 </div>
             </div>
 
-            <!-- CERTIFICATES PANEL -->
-            <div id="panel-certificates" class="certs-panel active">
-                <div class="neo-card lime p-8 hover-trigger group">
-                    <!-- Added Custom Scrollbar & Max Height for Option 1 -->
-                    <ul class="font-mono text-base text-zinc-300 space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_1.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Machine Learning</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">NPTEL IIT Kharagpur</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_2.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Python for Data Science, AI & Development</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">IBM</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_3.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Unity Essentials</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Unity Technologies</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_4.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Database Management Systems (DBMS)</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Udemy</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_5.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Machine Learning Bootcamp (Arcade Intelligence)</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Next-Gen AI, SRM IST</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_6.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Learn Ethical Hacking From Scratch</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Udemy</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_7.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Outstanding Student of 1st year</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">C.Tech Department</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_8.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 8</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_9.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 9</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_10.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 10</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_11.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 11</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_12.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 12</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_13.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 13</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_14.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 14</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_15.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 15</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_16.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 16</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_17.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 17</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_18.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 18</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_19.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 19</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_20.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 20</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_21.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 21</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_22.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 22</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_23.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 23</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_24.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 24</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_25.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 25</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_26.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 26</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_27.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 27</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_28.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 28</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_29.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 29</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_30.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 30</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_31.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 31</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_32.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 32</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_33.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 33</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_34.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 34</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_35.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 35</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_36.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 36</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_37.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 37</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_38.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 38</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_39.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 39</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="certificates/cert_40.jpg">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonLime flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonLime group-hover/item:font-bold transition-all">Certification 40</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Verified Issuer</span>
-                        </li>
+            <div id="panel-ticker" class="certs-panel active">
+                <div class="marquee-container">
+                    
+    <div class="marquee-track marquee-forward">
+        <div class="marquee-content">
+            <img src="certificates/cert_1.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_1.jpg" alt="Certificate" />
+<img src="certificates/cert_2.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_2.jpg" alt="Certificate" />
+<img src="certificates/cert_3.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_3.jpg" alt="Certificate" />
+<img src="certificates/cert_4.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_4.jpg" alt="Certificate" />
+<img src="certificates/cert_5.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_5.jpg" alt="Certificate" />
+<img src="certificates/cert_6.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_6.jpg" alt="Certificate" />
+<img src="certificates/cert_7.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_7.jpg" alt="Certificate" />
+<img src="certificates/cert_8.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_8.jpg" alt="Certificate" />
+<img src="certificates/cert_9.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_9.jpg" alt="Certificate" />
+<img src="certificates/cert_10.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_10.jpg" alt="Certificate" />
+<img src="certificates/cert_11.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_11.jpg" alt="Certificate" />
+<img src="certificates/cert_12.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_12.jpg" alt="Certificate" />
+<img src="certificates/cert_13.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_13.jpg" alt="Certificate" />
+<img src="certificates/cert_14.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_14.jpg" alt="Certificate" />
+<img src="certificates/cert_15.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_15.jpg" alt="Certificate" />
+<img src="certificates/cert_16.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_16.jpg" alt="Certificate" />
+<img src="certificates/cert_17.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_17.jpg" alt="Certificate" />
+<img src="certificates/cert_18.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_18.jpg" alt="Certificate" />
+<img src="certificates/cert_19.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_19.jpg" alt="Certificate" />
+<img src="certificates/cert_20.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_20.jpg" alt="Certificate" />
 
-                    </ul>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+            <img src="certificates/cert_1.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_1.jpg" alt="Certificate" />
+<img src="certificates/cert_2.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_2.jpg" alt="Certificate" />
+<img src="certificates/cert_3.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_3.jpg" alt="Certificate" />
+<img src="certificates/cert_4.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_4.jpg" alt="Certificate" />
+<img src="certificates/cert_5.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_5.jpg" alt="Certificate" />
+<img src="certificates/cert_6.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_6.jpg" alt="Certificate" />
+<img src="certificates/cert_7.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_7.jpg" alt="Certificate" />
+<img src="certificates/cert_8.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_8.jpg" alt="Certificate" />
+<img src="certificates/cert_9.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_9.jpg" alt="Certificate" />
+<img src="certificates/cert_10.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_10.jpg" alt="Certificate" />
+<img src="certificates/cert_11.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_11.jpg" alt="Certificate" />
+<img src="certificates/cert_12.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_12.jpg" alt="Certificate" />
+<img src="certificates/cert_13.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_13.jpg" alt="Certificate" />
+<img src="certificates/cert_14.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_14.jpg" alt="Certificate" />
+<img src="certificates/cert_15.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_15.jpg" alt="Certificate" />
+<img src="certificates/cert_16.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_16.jpg" alt="Certificate" />
+<img src="certificates/cert_17.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_17.jpg" alt="Certificate" />
+<img src="certificates/cert_18.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_18.jpg" alt="Certificate" />
+<img src="certificates/cert_19.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_19.jpg" alt="Certificate" />
+<img src="certificates/cert_20.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_20.jpg" alt="Certificate" />
+
+        </div>
+    </div>
+    
+                    
+    <div class="marquee-track marquee-reverse">
+        <div class="marquee-content">
+            <img src="certificates/cert_21.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_21.jpg" alt="Certificate" />
+<img src="certificates/cert_22.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_22.jpg" alt="Certificate" />
+<img src="certificates/cert_23.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_23.jpg" alt="Certificate" />
+<img src="certificates/cert_24.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_24.jpg" alt="Certificate" />
+<img src="certificates/cert_25.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_25.jpg" alt="Certificate" />
+<img src="certificates/cert_26.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_26.jpg" alt="Certificate" />
+<img src="certificates/cert_27.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_27.jpg" alt="Certificate" />
+<img src="certificates/cert_28.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_28.jpg" alt="Certificate" />
+<img src="certificates/cert_29.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_29.jpg" alt="Certificate" />
+<img src="certificates/cert_30.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_30.jpg" alt="Certificate" />
+<img src="certificates/cert_31.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_31.jpg" alt="Certificate" />
+<img src="certificates/cert_32.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_32.jpg" alt="Certificate" />
+<img src="certificates/cert_33.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_33.jpg" alt="Certificate" />
+<img src="certificates/cert_34.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_34.jpg" alt="Certificate" />
+<img src="certificates/cert_35.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_35.jpg" alt="Certificate" />
+<img src="certificates/cert_36.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_36.jpg" alt="Certificate" />
+<img src="certificates/cert_37.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_37.jpg" alt="Certificate" />
+<img src="certificates/cert_38.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_38.jpg" alt="Certificate" />
+<img src="certificates/cert_39.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_39.jpg" alt="Certificate" />
+<img src="certificates/cert_40.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_40.jpg" alt="Certificate" />
+
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+            <img src="certificates/cert_21.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_21.jpg" alt="Certificate" />
+<img src="certificates/cert_22.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_22.jpg" alt="Certificate" />
+<img src="certificates/cert_23.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_23.jpg" alt="Certificate" />
+<img src="certificates/cert_24.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_24.jpg" alt="Certificate" />
+<img src="certificates/cert_25.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_25.jpg" alt="Certificate" />
+<img src="certificates/cert_26.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_26.jpg" alt="Certificate" />
+<img src="certificates/cert_27.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_27.jpg" alt="Certificate" />
+<img src="certificates/cert_28.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_28.jpg" alt="Certificate" />
+<img src="certificates/cert_29.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_29.jpg" alt="Certificate" />
+<img src="certificates/cert_30.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_30.jpg" alt="Certificate" />
+<img src="certificates/cert_31.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_31.jpg" alt="Certificate" />
+<img src="certificates/cert_32.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_32.jpg" alt="Certificate" />
+<img src="certificates/cert_33.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_33.jpg" alt="Certificate" />
+<img src="certificates/cert_34.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_34.jpg" alt="Certificate" />
+<img src="certificates/cert_35.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_35.jpg" alt="Certificate" />
+<img src="certificates/cert_36.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_36.jpg" alt="Certificate" />
+<img src="certificates/cert_37.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_37.jpg" alt="Certificate" />
+<img src="certificates/cert_38.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_38.jpg" alt="Certificate" />
+<img src="certificates/cert_39.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_39.jpg" alt="Certificate" />
+<img src="certificates/cert_40.jpg" class="marquee-item hover-trigger lightbox-trigger" data-lb="certificates/cert_40.jpg" alt="Certificate" />
+
+        </div>
+    </div>
+    
                 </div>
             </div>
 
-            <!-- CERTIFICATIONS PANEL -->
-            <div id="panel-certifications" class="certs-panel">
-                <div class="neo-card pink p-8 hover-trigger group">
-                    <ul class="font-mono text-base text-zinc-300 space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ff00ff?text=NPTEL+Elite&font=monospace">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonPink flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonPink group-hover/item:font-bold transition-all">NPTEL Elite — Machine Learning</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">IIT Kharagpur</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between border-b border-zinc-800 pb-4 group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ff00ff?text=IBM+Data+Science&font=monospace">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonPink flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonPink group-hover/item:font-bold transition-all">IBM Data Science Professional</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Coursera</span>
-                        </li>
-                        <li class="cert-item flex items-center justify-between group/item cursor-crosshair" data-img="https://placehold.co/600x400/18181b/ff00ff?text=Unity+Certified&font=monospace">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-neonPink flex-shrink-0"></span>
-                                <span class="group-hover/item:text-neonPink group-hover/item:font-bold transition-all">Unity Certified Associate</span>
-                            </div>
-                            <span class="text-zinc-600 text-xs uppercase bg-zinc-900 px-2 py-1 rounded font-bold tracking-wider">Unity</span>
-                        </li>
-                    </ul>
+            <div id="panel-gallery" class="certs-panel">
+                <div class="neo-card pink p-4 sm:p-8 hover-trigger group h-[800px] overflow-y-auto custom-scrollbar">
+                    <div class="masonry-grid">
+                        <img src="certificates/cert_1.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_1.jpg" alt="Certificate" />
+<img src="certificates/cert_2.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_2.jpg" alt="Certificate" />
+<img src="certificates/cert_3.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_3.jpg" alt="Certificate" />
+<img src="certificates/cert_4.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_4.jpg" alt="Certificate" />
+<img src="certificates/cert_5.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_5.jpg" alt="Certificate" />
+<img src="certificates/cert_6.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_6.jpg" alt="Certificate" />
+<img src="certificates/cert_7.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_7.jpg" alt="Certificate" />
+<img src="certificates/cert_8.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_8.jpg" alt="Certificate" />
+<img src="certificates/cert_9.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_9.jpg" alt="Certificate" />
+<img src="certificates/cert_10.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_10.jpg" alt="Certificate" />
+<img src="certificates/cert_11.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_11.jpg" alt="Certificate" />
+<img src="certificates/cert_12.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_12.jpg" alt="Certificate" />
+<img src="certificates/cert_13.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_13.jpg" alt="Certificate" />
+<img src="certificates/cert_14.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_14.jpg" alt="Certificate" />
+<img src="certificates/cert_15.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_15.jpg" alt="Certificate" />
+<img src="certificates/cert_16.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_16.jpg" alt="Certificate" />
+<img src="certificates/cert_17.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_17.jpg" alt="Certificate" />
+<img src="certificates/cert_18.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_18.jpg" alt="Certificate" />
+<img src="certificates/cert_19.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_19.jpg" alt="Certificate" />
+<img src="certificates/cert_20.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_20.jpg" alt="Certificate" />
+<img src="certificates/cert_21.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_21.jpg" alt="Certificate" />
+<img src="certificates/cert_22.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_22.jpg" alt="Certificate" />
+<img src="certificates/cert_23.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_23.jpg" alt="Certificate" />
+<img src="certificates/cert_24.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_24.jpg" alt="Certificate" />
+<img src="certificates/cert_25.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_25.jpg" alt="Certificate" />
+<img src="certificates/cert_26.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_26.jpg" alt="Certificate" />
+<img src="certificates/cert_27.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_27.jpg" alt="Certificate" />
+<img src="certificates/cert_28.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_28.jpg" alt="Certificate" />
+<img src="certificates/cert_29.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_29.jpg" alt="Certificate" />
+<img src="certificates/cert_30.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_30.jpg" alt="Certificate" />
+<img src="certificates/cert_31.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_31.jpg" alt="Certificate" />
+<img src="certificates/cert_32.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_32.jpg" alt="Certificate" />
+<img src="certificates/cert_33.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_33.jpg" alt="Certificate" />
+<img src="certificates/cert_34.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_34.jpg" alt="Certificate" />
+<img src="certificates/cert_35.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_35.jpg" alt="Certificate" />
+<img src="certificates/cert_36.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_36.jpg" alt="Certificate" />
+<img src="certificates/cert_37.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_37.jpg" alt="Certificate" />
+<img src="certificates/cert_38.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_38.jpg" alt="Certificate" />
+<img src="certificates/cert_39.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_39.jpg" alt="Certificate" />
+<img src="certificates/cert_40.jpg" class="masonry-item hover-trigger lightbox-trigger" data-lb="certificates/cert_40.jpg" alt="Certificate" />
+
+                    </div>
                 </div>
             </div>
+
         </section>
 
         <!-- FOOTER / CTA -->
@@ -939,7 +775,7 @@
     </main>
 
     <!-- Floating Image Preview Element -->
-    <img id="cert-preview-img" src="" class="fixed top-0 left-0 pointer-events-none z-[1000] opacity-0 transition-opacity duration-300 w-64 md:w-80 h-auto rounded-xl border-4 object-cover" alt="Certificate Preview" style="will-change: transform, opacity;" />
+    
 
     <!-- GUI OS Overlay (Hidden by Default) -->
     <div id="gui-os">
@@ -1432,35 +1268,40 @@
                     }
                 });
             }
-            // --- Certs Toggle Logic ---
+                        // --- Certs View Toggle Logic ---
             const certsToggle = document.getElementById('certs-toggle');
             const certsSlider = document.getElementById('certs-toggle-slider');
 
             function initCertsSlider() {
-                const activeBtn = document.getElementById('btn-certificates');
-                certsSlider.style.width = activeBtn.offsetWidth + 'px';
-                certsSlider.style.left = activeBtn.offsetLeft + 'px';
+                const activeBtn = document.getElementById('btn-ticker');
+                if(activeBtn && certsSlider) {
+                    certsSlider.style.width = activeBtn.offsetWidth + 'px';
+                    certsSlider.style.left = activeBtn.offsetLeft + 'px';
+                }
             }
             // Init after fonts/layout settle
             setTimeout(initCertsSlider, 150);
             window.addEventListener('resize', initCertsSlider);
 
-            window.switchCerts = function(mode) {
-                const panels = document.querySelectorAll('.certs-panel');
+            window.switchCertsView = function(mode) {
                 const btns = document.querySelectorAll('.certs-toggle-btn');
                 const heading = document.getElementById('certs-heading');
                 const targetPanel = document.getElementById('panel-' + mode);
                 const targetBtn = document.getElementById('btn-' + mode);
+
+                if(!targetBtn || !targetPanel) return;
 
                 // Slide the indicator
                 certsSlider.style.width = targetBtn.offsetWidth + 'px';
                 certsSlider.style.left = targetBtn.offsetLeft + 'px';
 
                 // Toggle color mode on wrapper
-                if (mode === 'certifications') {
+                if (mode === 'gallery') {
                     certsToggle.classList.add('mode-certifications');
+                    heading.textContent = 'gallery.';
                 } else {
                     certsToggle.classList.remove('mode-certifications');
+                    heading.textContent = 'ticker.';
                 }
 
                 // Swap active button
@@ -1470,9 +1311,6 @@
                 });
                 targetBtn.classList.add('active');
                 targetBtn.setAttribute('aria-selected', 'true');
-
-                // Update heading
-                heading.textContent = mode === 'certifications' ? 'certifications.' : 'certs.';
 
                 // Fade out current panel, then switch
                 const currentPanel = document.querySelector('.certs-panel.active');
@@ -1487,46 +1325,47 @@
                 }
             };
 
-            // --- Floating Image Preview Logic ---
-            const certItems = document.querySelectorAll('.cert-item');
-            const previewImg = document.getElementById('cert-preview-img');
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const triggers = document.querySelectorAll('.lightbox-trigger');
+
+            function openLightbox(src) {
+                lightboxImg.src = src;
+                lightbox.classList.add('active');
+                document.body.classList.add('lightbox-open');
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.classList.remove('lightbox-open');
+                setTimeout(() => {
+                    lightboxImg.src = '';
+                }, 300);
+            }
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openLightbox(trigger.getAttribute('data-lb'));
+                });
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
             
-            let currentImgSrc = '';
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
 
-            certItems.forEach(item => {
-                item.addEventListener('mouseenter', (e) => {
-                    const imgSrc = item.getAttribute('data-img');
-                    if(imgSrc && previewImg) {
-                        currentImgSrc = imgSrc;
-                        previewImg.src = imgSrc;
-                        previewImg.style.opacity = '1';
-                        // Add some rotation based on the card color context for extra juice
-                        const parentCard = item.closest('.neo-card');
-                        if(parentCard && parentCard.classList.contains('pink')) {
-                            previewImg.style.borderColor = '#ff00ff';
-                            previewImg.style.boxShadow = '8px 8px 0 0 rgba(255,0,255,1)';
-                            previewImg.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) rotate(2deg)`;
-                        } else {
-                            previewImg.style.borderColor = '#ccff00';
-                            previewImg.style.boxShadow = '8px 8px 0 0 rgba(204,255,0,1)';
-                            previewImg.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) rotate(-2deg)`;
-                        }
-                    }
-                });
-                
-                item.addEventListener('mousemove', (e) => {
-                    if(previewImg.style.opacity === '1') {
-                        // Keep the rotation state from mouseenter
-                        const rot = previewImg.style.transform.includes('rotate(2deg)') ? 'rotate(2deg)' : 'rotate(-2deg)';
-                        previewImg.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) ${rot}`;
-                    }
-                });
-
-                item.addEventListener('mouseleave', () => {
-                    if(previewImg) {
-                        previewImg.style.opacity = '0';
-                    }
-                });
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if(e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
             });
 
         });
@@ -1543,6 +1382,13 @@
             });
         });
     </script>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-neonPink text-4xl font-sans font-bold hover-trigger z-50 transition-colors">&times;</button>
+        <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain scale-95 transition-transform duration-300 border-4 border-neonPink shadow-[0_0_50px_rgba(255,0,255,0.3)]" alt="Expanded Certificate" />
+    </div>
+
 </body>
 
 </html>
