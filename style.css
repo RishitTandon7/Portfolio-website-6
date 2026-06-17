@@ -266,7 +266,7 @@
     
     .gui-wallpaper {
         position: absolute; inset: 0; z-index: -1;
-        background: url('https://i.pinimg.com/236x/87/40/e0/8740e0ebde64c015b6dcc2f6540c4f82.jpg') center/cover no-repeat;
+        background: url('https://i.pinimg.com/1200x/2c/b1/be/2cb1bea637c46a8d7e21e09d22cd9391.jpg') center/cover no-repeat;
     }
 
     #gui-os.booted { display: flex; }
@@ -352,7 +352,10 @@
         .os-icon .app-squircle { transform: scale(0.9); margin-bottom: 4px; }
         .os-icon .icon-label { background: transparent; margin-top: 0; }
         
-        .os-dock { display: none !important; }
+        .os-dock { width: 95%; bottom: 16px; border-radius: 24px; padding: 8px; justify-content: space-evenly; overflow: hidden; gap: 4px; scrollbar-width: none; }
+        .os-dock::-webkit-scrollbar { display: none; }
+        .dock-item { width: clamp(32px, 10vw, 40px); height: clamp(32px, 10vw, 40px); font-size: 1.2rem; flex-shrink: 1; }
+        .dock-squircle { width: 100%; height: 100%; font-size: 1.1rem; border-radius: 10px; }
         
         .os-window {
             width: 100% !important; height: 100% !important; top: 0 !important; left: 0 !important;
