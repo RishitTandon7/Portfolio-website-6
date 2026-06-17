@@ -40,7 +40,7 @@
         background-size: 40px 40px;
         animation: pan-grid 30s linear infinite;
         will-change: background-position;
-        contain: strict;
+        contain: layout style paint;
     }
     @keyframes pan-grid {
         0% { background-position: 0px 0px; }
@@ -336,9 +336,16 @@
         opacity: 1;
         transform: translateY(0);
     }
+    .certs-panel.entering {
+        display: block;
+        opacity: 0;
+        transform: translateY(16px);
+    }
     .certs-panel.fade-out {
         opacity: 0;
         transform: translateY(-12px);
+        display: block;
+        pointer-events: none;
     }
 
     /* Pill Toggle Wrap */
@@ -574,7 +581,8 @@ body.lightbox-open {
     }
     .certs-toggle-wrap {
         transform: scale(0.85);
-        transform-origin: left center;
+        transform-origin: center center;
+        flex-shrink: 0;
     }
     .neo-card {
         padding: 1.5rem !important;
@@ -590,9 +598,33 @@ body.lightbox-open {
     }
     /* Fix the fixed nav on mobile blocking content */
     nav {
-        top: 2px !important;
+        top: env(safe-area-inset-top, 8px) !important;
     }
-    nav div {
-        padding: 8px 16px !important;
+    nav > div {
+        padding: 8px 12px !important;
+        gap: 8px !important;
+        font-size: 9px !important;
     }
+    /* Prevent marquee from causing horizontal scroll */
+    .marquee-container {
+        overflow-x: hidden;
+    }
+    /* Hero section: add top padding so nav doesn't overlap */
+    #about {
+        padding-top: 100px !important;
+        min-height: 100svh;
+    }
+    /* Reduce footer link gap */
+    footer .flex.flex-wrap { gap: 1rem !important; font-size: 1rem !important; }
+    /* Fix gallery height on mobile */
+    .neo-card.pink.h-\[800px\] { height: 60vh !important; }
+    /* Fix open source row cards: allow text to wrap */
+    .neo-card.pink.col-span-1, .neo-card.blue.col-span-1, .neo-card.lime.col-span-1 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    /* Reduce heading sizes for small screens */
+    h1 { word-break: break-word; }
+    h2 { word-break: break-word; }
+    h3 { word-break: break-word; }
 }

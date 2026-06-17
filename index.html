@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rishit Tandon – 4th year CS student at SRM IST. AI/ML, IoT, fullstack dev. Hackathon winner. Building intelligent systems.">
+    <meta name="theme-color" content="#09090b">
+    <meta property="og:title" content="Rishit Tandon // Dev">
+    <meta property="og:description" content="4th year CS dev building intelligent systems. I write code that writes code, build robots, and win hackathons.">
+    <meta property="og:type" content="website">
     <title>rishit tandon // dev</title>
     
     <!-- Gen Z / Modern Typography -->
@@ -69,7 +74,7 @@
                     </div>
                     <div class="term-input-line">
                         <span class="text-neonLime">rishit@sys</span>:~ $
-                        <input type="text" id="term-input" class="term-input hover-trigger" autocomplete="off" spellcheck="false" autofocus>
+                        <input type="text" id="term-input" class="term-input hover-trigger" autocomplete="off" spellcheck="false">
                     </div>
                 </div>
             </div>
@@ -775,7 +780,7 @@
             </div>
 
             <div class="relative z-10 spring-up">
-                <h2 class="font-sans text-6xl md:text-8xl font-extrabold uppercase mb-8">let's build<br>something crazy.</h2>
+                <h2 class="font-sans text-4xl sm:text-6xl md:text-8xl font-extrabold uppercase mb-8">let's build<br>something crazy.</h2>
                 <div class="flex flex-wrap justify-center gap-6 font-mono font-bold text-xl uppercase">
                     <a href="mailto:rishit.tandon.7@gmail.com" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">email ↗</a>
                     <a href="https://github.com/RishitTandon7" target="_blank" class="hover:underline decoration-4 underline-offset-4 hover:scale-110 transition-transform">github ↗</a>
@@ -945,28 +950,31 @@
                 }
             }, 50);
 
-            // --- Dynamic Follower Cursor ---
+            // --- Dynamic Follower Cursor (desktop only) ---
             const follower = document.getElementById('cursor-follower');
             const dot = document.querySelector('.cursor-dot');
             const triggers = document.querySelectorAll('.hover-trigger, a, button, .neo-card');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
             let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
             let followerX = window.innerWidth / 2; let followerY = window.innerHeight / 2;
             const HALF_FOLLOWER = 150; // half of 300px
             const HALF_DOT = 6;       // half of 12px
 
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX; mouseY = e.clientY;
-                dot.style.transform = `translate(${mouseX - HALF_DOT}px, ${mouseY - HALF_DOT}px)`;
-            }, { passive: true });
+            if (!isTouchDevice) {
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX; mouseY = e.clientY;
+                    dot.style.transform = `translate(${mouseX - HALF_DOT}px, ${mouseY - HALF_DOT}px)`;
+                }, { passive: true });
 
-            const animateFollower = () => {
-                followerX += (mouseX - followerX) * 0.1;
-                followerY += (mouseY - followerY) * 0.1;
-                follower.style.transform = `translate(${followerX - HALF_FOLLOWER}px, ${followerY - HALF_FOLLOWER}px)`;
-                requestAnimationFrame(animateFollower);
-            };
-            animateFollower();
+                const animateFollower = () => {
+                    followerX += (mouseX - followerX) * 0.1;
+                    followerY += (mouseY - followerY) * 0.1;
+                    follower.style.transform = `translate(${followerX - HALF_FOLLOWER}px, ${followerY - HALF_FOLLOWER}px)`;
+                    requestAnimationFrame(animateFollower);
+                };
+                animateFollower();
+            }
 
             triggers.forEach(t => {
                 t.addEventListener('mouseenter', () => {
@@ -1171,9 +1179,11 @@
             window.bootGUI = function() {
                 guiOs.classList.add('booted');
                 
-                follower.style.display = 'none';
-                dot.style.display = 'none';
-                document.body.style.cursor = 'auto';
+                if (!isTouchDevice) {
+                    follower.style.display = 'none';
+                    dot.style.display = 'none';
+                    document.body.style.cursor = 'auto';
+                }
                 guiOs.classList.add('gta-cursor');
                 
                 setTimeout(() => { guiOs.classList.add('active'); }, 50);
@@ -1184,8 +1194,10 @@
                 setTimeout(() => {
                     guiOs.classList.remove('booted');
                     guiOs.classList.remove('gta-cursor');
-                    follower.style.display = 'block';
-                    dot.style.display = 'block';
+                    if (!isTouchDevice) {
+                        follower.style.display = 'block';
+                        dot.style.display = 'block';
+                    }
                     printTerm("> GUI shutdown complete.", "text-zinc-500");
                 }, 500);
             }
@@ -1333,12 +1345,17 @@
                 targetBtn.classList.add('active');
                 targetBtn.setAttribute('aria-selected', 'true');
 
-                // Fade out current panel, then switch
+                // Fade out current panel, then animate in the new one
                 const currentPanel = document.querySelector('.certs-panel.active');
                 if (currentPanel && currentPanel !== targetPanel) {
                     currentPanel.classList.add('fade-out');
+                    // Stage the new panel as entering (display:block but opacity 0)
+                    targetPanel.classList.add('entering');
                     setTimeout(() => {
                         currentPanel.classList.remove('active', 'fade-out');
+                        targetPanel.classList.remove('entering');
+                        // Force a reflow so the transition fires
+                        void targetPanel.offsetHeight;
                         targetPanel.classList.add('active');
                     }, 280);
                 } else if (!currentPanel) {
