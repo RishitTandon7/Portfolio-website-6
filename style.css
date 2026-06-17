@@ -11,7 +11,7 @@
     }
     
     a, button, .hover-trigger, .os-icon, .dock-item, .os-ctrl, .clickable {
-        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M11 2c-1.1 0-2 .9-2 2v7H8c-1.1 0-2 .9-2 2v1h-1c-1.1 0-2 .9-2 2v6c0 3.3 2.7 6 6 6h6c3.3 0 6-2.7 6-6v-6c0-1.1-.9-2-2-2h-1v-1c0-1.1-.9-2-2-2h-1V9c0-1.1-.9-2-2-2h-1V4c0-1.1-.9-2-2-2z" fill="%23ff00ff" stroke="%23000000" stroke-width="2"/></svg>') 10 2, pointer !important;
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><polygon points="2,2 10,26 14,16 26,12" fill="%23ff00ff" stroke="%23000000" stroke-width="2"/></svg>') 2 2, pointer !important;
     }
 
     ::selection { background-color: #ccff00; color: #09090b; }

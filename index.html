@@ -1426,18 +1426,9 @@
 
             // --- GUI OS LOGIC (UPDATED) ---
             const guiOs = document.getElementById('gui-os');
-            // follower and dot are already declared above
             
             window.bootGUI = function() {
                 guiOs.classList.add('booted');
-                
-                if (!isTouchDevice) {
-                    follower.style.display = 'none';
-                    dot.style.display = 'none';
-                    document.body.style.cursor = 'auto';
-                }
-                guiOs.classList.add('gta-cursor');
-                
                 setTimeout(() => { guiOs.classList.add('active'); }, 50);
             }
             
@@ -1445,11 +1436,6 @@
                 guiOs.classList.remove('active');
                 setTimeout(() => {
                     guiOs.classList.remove('booted');
-                    guiOs.classList.remove('gta-cursor');
-                    if (!isTouchDevice) {
-                        follower.style.display = 'block';
-                        dot.style.display = 'block';
-                    }
                     printTerm("> GUI shutdown complete.", "text-zinc-500");
                 }, 500);
             }
