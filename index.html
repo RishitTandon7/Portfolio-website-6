@@ -863,6 +863,18 @@
                 <div class="app-squircle bg-mail">✉️</div>
                 <div class="icon-label">email.exe</div>
             </div>
+            <div class="os-icon hover-trigger" onclick="openOsWindow('calc-win')">
+                <div class="app-squircle bg-calc">🧮</div>
+                <div class="icon-label">calc.exe</div>
+            </div>
+            <div class="os-icon hover-trigger" onclick="openOsWindow('snake-win')">
+                <div class="app-squircle bg-snake">🐍</div>
+                <div class="icon-label">snake.exe</div>
+            </div>
+            <div class="os-icon hover-trigger" onclick="openOsWindow('about-win')">
+                <div class="app-squircle bg-txt">📝</div>
+                <div class="icon-label">about.txt</div>
+            </div>
         </div>
 
         <!-- ==================== OS WINDOWS ==================== -->
@@ -1196,6 +1208,135 @@
             <div class="mobile-home-bar" onclick="closeOsWindow('certs-win')"></div>
         </div>
 
+        <!-- CALCULATOR WINDOW -->
+        <div class="os-window" id="calc-win" style="top: 100px; left: 100px; width: 320px; max-height: unset; height: auto;">
+            <div class="os-window-header hover-trigger">
+                <div class="os-window-controls">
+                    <div class="os-ctrl close hover-trigger" onclick="closeOsWindow('calc-win')"></div>
+                    <div class="os-ctrl min"></div>
+                    <div class="os-ctrl max"></div>
+                </div>
+                <div class="os-window-title">calc.exe</div>
+                <div class="w-12 md:block hidden"></div>
+            </div>
+            <div class="os-window-body bg-[#18181b] p-4 text-white font-mono rounded-b-lg">
+                <div id="calc-display" class="w-full bg-[#09090b] text-right text-3xl p-4 mb-4 rounded border border-zinc-800 overflow-hidden">0</div>
+                <div class="grid grid-cols-4 gap-2 text-xl font-bold">
+                    <button class="calc-btn bg-zinc-800 hover:bg-zinc-700 p-4 rounded text-red-500" onclick="calcInput('C')">C</button>
+                    <button class="calc-btn bg-zinc-800 hover:bg-zinc-700 p-4 rounded" onclick="calcInput('±')">±</button>
+                    <button class="calc-btn bg-zinc-800 hover:bg-zinc-700 p-4 rounded" onclick="calcInput('%')">%</button>
+                    <button class="calc-btn bg-[#fca311] hover:bg-[#e5940e] text-black p-4 rounded" onclick="calcInput('/')">÷</button>
+                    
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('7')">7</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('8')">8</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('9')">9</button>
+                    <button class="calc-btn bg-[#fca311] hover:bg-[#e5940e] text-black p-4 rounded" onclick="calcInput('*')">×</button>
+                    
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('4')">4</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('5')">5</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('6')">6</button>
+                    <button class="calc-btn bg-[#fca311] hover:bg-[#e5940e] text-black p-4 rounded" onclick="calcInput('-')">-</button>
+                    
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('1')">1</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('2')">2</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('3')">3</button>
+                    <button class="calc-btn bg-[#fca311] hover:bg-[#e5940e] text-black p-4 rounded" onclick="calcInput('+')">+</button>
+                    
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded col-span-2" onclick="calcInput('0')">0</button>
+                    <button class="calc-btn bg-zinc-700 hover:bg-zinc-600 p-4 rounded" onclick="calcInput('.')">.</button>
+                    <button class="calc-btn bg-[#fca311] hover:bg-[#e5940e] text-black p-4 rounded" onclick="calcInput('=')">=</button>
+                </div>
+            </div>
+            <div class="mobile-home-bar" onclick="closeOsWindow('calc-win')"></div>
+        </div>
+
+        <!-- SNAKE GAME WINDOW -->
+        <div class="os-window" id="snake-win" style="top: 120px; left: 350px; width: 440px; max-height: unset; height: auto;">
+            <div class="os-window-header hover-trigger">
+                <div class="os-window-controls">
+                    <div class="os-ctrl close hover-trigger" onclick="closeOsWindow('snake-win')"></div>
+                    <div class="os-ctrl min"></div>
+                    <div class="os-ctrl max"></div>
+                </div>
+                <div class="os-window-title">snake.exe</div>
+                <div class="w-12 md:block hidden"></div>
+            </div>
+            <div class="os-window-body bg-black flex flex-col items-center justify-center p-4 rounded-b-lg relative">
+                <div class="text-[#39ff14] font-mono text-xl mb-2 flex justify-between w-full px-2">
+                    <span>SCORE: <span id="snake-score">0</span></span>
+                    <span>HI: <span id="snake-hiscore">0</span></span>
+                </div>
+                <canvas id="snake-canvas" width="400" height="400" class="border-2 border-[#39ff14] bg-zinc-900 shadow-[0_0_15px_rgba(57,255,20,0.3)]"></canvas>
+                
+                <div id="snake-overlay" class="absolute inset-0 bg-black/80 flex flex-col items-center justify-center backdrop-blur-sm z-10 rounded-b-lg">
+                    <h2 class="text-[#39ff14] text-4xl font-black mb-4 font-mono uppercase text-center" id="snake-msg">SNAKE.EXE</h2>
+                    <p class="text-white font-mono mb-6 text-center px-4">Use Arrow Keys or WASD to move.</p>
+                    <button onclick="startSnakeGame()" class="bg-[#39ff14] text-black font-bold font-mono px-6 py-2 rounded hover:bg-white hover:text-black hover:scale-105 transition-all">START</button>
+                </div>
+                
+                <!-- Mobile Controls -->
+                <div class="grid grid-cols-3 gap-2 mt-4 md:hidden w-full max-w-[200px]">
+                    <div></div>
+                    <button class="bg-zinc-800 text-[#39ff14] p-3 rounded hover:bg-zinc-700 font-black text-xl" onclick="snakeDir(0, -1)">↑</button>
+                    <div></div>
+                    <button class="bg-zinc-800 text-[#39ff14] p-3 rounded hover:bg-zinc-700 font-black text-xl" onclick="snakeDir(-1, 0)">←</button>
+                    <button class="bg-zinc-800 text-[#39ff14] p-3 rounded hover:bg-zinc-700 font-black text-xl" onclick="snakeDir(0, 1)">↓</button>
+                    <button class="bg-zinc-800 text-[#39ff14] p-3 rounded hover:bg-zinc-700 font-black text-xl" onclick="snakeDir(1, 0)">→</button>
+                </div>
+            </div>
+            <div class="mobile-home-bar" onclick="closeOsWindow('snake-win')"></div>
+        </div>
+
+        <!-- ABOUT TEXT FILE WINDOW -->
+        <div class="os-window" id="about-win" style="top: 180px; left: 180px; width: 600px; max-width: 90vw;">
+            <div class="os-window-header hover-trigger">
+                <div class="os-window-controls">
+                    <div class="os-ctrl close hover-trigger" onclick="closeOsWindow('about-win')"></div>
+                    <div class="os-ctrl min"></div>
+                    <div class="os-ctrl max"></div>
+                </div>
+                <div class="os-window-title">about.txt - Notepad</div>
+                <div class="w-12 md:block hidden"></div>
+            </div>
+            <div class="os-window-body bg-[#18181b] text-[#a8b2d1] font-mono text-sm p-4 rounded-b-lg">
+                <div class="border-b border-zinc-700 pb-2 mb-2 flex gap-4 text-xs">
+                    <span class="hover:bg-zinc-700 px-2 py-1 cursor-pointer">File</span>
+                    <span class="hover:bg-zinc-700 px-2 py-1 cursor-pointer">Edit</span>
+                    <span class="hover:bg-zinc-700 px-2 py-1 cursor-pointer">Format</span>
+                    <span class="hover:bg-zinc-700 px-2 py-1 cursor-pointer">View</span>
+                    <span class="hover:bg-zinc-700 px-2 py-1 cursor-pointer">Help</span>
+                </div>
+                <textarea class="w-full h-[400px] outline-none resize-none bg-transparent" readonly>
+=========================================
+      WELCOME TO RISHIT OS v1.0.0
+=========================================
+
+Hey! Thanks for checking out my interactive portfolio OS.
+I built this from scratch using Vite, TailwindCSS, and vanilla JS.
+
+Why build an OS instead of a normal website?
+Because normal websites are boring. I wanted to create an experience
+that actually shows my engineering skills rather than just listing them.
+
+Features built so far:
+- Draggable, overlapping window system (z-index tracking)
+- Fully functional terminal emulator with commands
+- Custom glassmorphism UI theme
+- Playable Snake mini-game
+- Interactive Calculator
+
+Feel free to break things. That's what hackers do.
+
+If you like what you see, let's talk!
+Email: rishit.tandon.7@gmail.com
+GitHub: github.com/RishitTandon7
+
+EOF
+</textarea>
+            </div>
+            <div class="mobile-home-bar" onclick="closeOsWindow('about-win')"></div>
+        </div>
+
         <!-- OS Dock -->
         <div class="os-dock">
             <div class="dock-item hover-trigger" onclick="shutDownGUI()" title="Exit OS">
@@ -1222,12 +1363,22 @@
             <div class="dock-item hover-trigger" onclick="window.open('/Rishit%20Tandon%20Image.pdf', '_blank')" title="Resume">
                 <div class="dock-squircle bg-resume">📄</div>
             </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('calc-win')" title="Calculator">
+                <div class="dock-squircle bg-calc">🧮</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('snake-win')" title="Snake">
+                <div class="dock-squircle bg-snake">🐍</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('about-win')" title="About">
+                <div class="dock-squircle bg-txt">📝</div>
+            </div>
             <div class="dock-item hover-trigger" onclick="window.open('https://github.com/RishitTandon7', '_blank')" title="GitHub">
                 <div class="dock-squircle bg-github">🐙</div>
             </div>
         </div>
     </div>
 
+    <script src="/os-apps.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -1367,7 +1518,7 @@
 
                     switch(cmd) {
                         case 'help': 
-                            printTerm("> cmds: skills, whoami, matrix, crash, gui, resume, projects, date, echo, sudo, ls, clear", "text-neonBlue"); 
+                            printTerm("> cmds: skills, whoami, matrix, crash, gui, resume, snake, calc, about, projects, calc, snake, about, date, echo, sudo, ls, clear", "text-neonBlue"); 
                             break;
                         case 'date':
                             printTerm(`> ${new Date().toString()}`, "text-zinc-400");
@@ -1382,6 +1533,18 @@
                         case 'resume':
                             printTerm("> opening resume...", "text-neonBlue");
                             window.open('/Rishit%20Tandon%20Image.pdf', '_blank');
+                            break;
+                        case 'snake':
+                            printTerm("> booting snake.exe...", "text-neonLime");
+                            setTimeout(() => { openOsWindow('snake-win'); }, 500);
+                            break;
+                        case 'calc':
+                            printTerm("> booting calc.exe...", "text-neonLime");
+                            setTimeout(() => { openOsWindow('calc-win'); }, 500);
+                            break;
+                        case 'about':
+                            printTerm("> opening about.txt...", "text-zinc-400");
+                            setTimeout(() => { openOsWindow('about-win'); }, 500);
                             break;
                         case 'projects':
                             printTerm("> routing to builds...", "text-neonBlue");
@@ -1579,7 +1742,7 @@
 
                         switch(cmd) {
                             case 'help': 
-                                printGuiTerm("> cmds: skills, whoami, matrix, crash, resume, projects, date, echo, sudo, ls, clear", "text-neonBlue"); 
+                                printGuiTerm("> cmds: skills, whoami, matrix, crash, resume, projects, calc, snake, about, date, echo, sudo, ls, clear", "text-neonBlue"); 
                                 break;
                             case 'date':
                                 printGuiTerm(`> ${new Date().toString()}`, "text-zinc-400");
@@ -1600,6 +1763,18 @@
                             case 'resume':
                                 printGuiTerm("> opening resume...", "text-neonBlue");
                                 window.open('/Rishit%20Tandon%20Image.pdf', '_blank');
+                                break;
+                            case 'snake':
+                                printGuiTerm("> booting snake.exe...", "text-neonLime");
+                                setTimeout(() => { openOsWindow('snake-win'); }, 500);
+                                break;
+                            case 'calc':
+                                printGuiTerm("> booting calc.exe...", "text-neonLime");
+                                setTimeout(() => { openOsWindow('calc-win'); }, 500);
+                                break;
+                            case 'about':
+                                printGuiTerm("> opening about.txt...", "text-zinc-400");
+                                setTimeout(() => { openOsWindow('about-win'); }, 500);
                                 break;
                             case 'projects':
                                 printGuiTerm("> opening projects window...", "text-neonBlue");
@@ -1949,7 +2124,7 @@
                 printMobile(`rishit@sys:~ $ ${cmd}`, '#ccff00');
                 switch(cmd.trim().toLowerCase()) {
                     case 'help':
-                        printMobile('> cmds: skills, whoami, matrix, crash, gui, resume, projects, date, echo, sudo, ls, clear', '#00e5ff'); break;
+                        printMobile('> cmds: skills, whoami, matrix, crash, gui, resume, snake, calc, about, projects, calc, snake, about, date, echo, sudo, ls, clear', '#00e5ff'); break;
                     case 'date':
                         printMobile(`> ${new Date().toString()}`, '#a1a1aa'); break;
                     case 'ls':
@@ -2040,7 +2215,7 @@
 
                     switch(cmd.toLowerCase()) {
                         case 'help':
-                            printGui("> cmds: skills, whoami, matrix, crash, exit, resume, projects, clear", "text-neonBlue"); 
+                            printGui("> cmds: skills, whoami, matrix, crash, exit, resume, projects, calc, snake, about, clear", "text-neonBlue"); 
                             break;
                         case 'skills':
                             printGui("> Python, React, Next.js, GenAI, Unity, IoT", "text-zinc-400"); 
