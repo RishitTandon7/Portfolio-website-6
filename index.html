@@ -868,6 +868,29 @@
 
         <!-- ==================== OS WINDOWS ==================== -->
 
+        <!-- NEW WINDOW: Terminal -->
+        <div id="term-win" class="os-window" style="width: 600px; height: 400px; top: 10%; left: 10%;">
+            <div class="os-window-header flex justify-between items-center">
+                <div class="flex gap-2">
+                    <div class="os-ctrl bg-red-500 hover-trigger" onclick="closeOsWindow('term-win')"></div>
+                    <div class="os-ctrl bg-yellow-500"></div>
+                    <div class="os-ctrl bg-green-500"></div>
+                </div>
+                <div class="text-xs font-mono text-zinc-400 font-bold">term.exe</div>
+                <div class="w-12"></div>
+            </div>
+            <div class="os-window-content p-4 font-mono text-sm h-full flex flex-col bg-[#09090b]">
+                <div id="gui-term-history" class="flex-grow overflow-y-auto mb-2 text-zinc-300">
+                    <span class="text-neonLime">rishit_os v1.0.0</span><br>
+                    <span class="text-zinc-500">> type 'help' to see commands</span><br><br>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <span class="text-neonLime whitespace-nowrap shrink-0">rishit@sys:~ $</span>
+                    <input type="text" id="gui-term-input" class="bg-transparent border-none outline-none text-white w-full" autocomplete="off" spellcheck="false" />
+                </div>
+            </div>
+        </div>
+
         <!-- BUILDS WINDOW -->
         <div class="os-window" id="projects-win" style="top: 80px; left: 80px;">
             <div class="os-window-header hover-trigger">
@@ -1202,29 +1225,6 @@
             <div class="mobile-home-bar" onclick="closeOsWindow('resume-win')"></div>
         </div>
 
-        <!-- NEW WINDOW: Terminal -->
-        <div id="term-win" class="os-window" style="width: 600px; height: 400px; top: 10%; left: 10%;">
-            <div class="os-window-header flex justify-between items-center">
-                <div class="flex gap-2">
-                    <div class="os-ctrl bg-red-500 hover-trigger" onclick="closeOsWindow('term-win')"></div>
-                    <div class="os-ctrl bg-yellow-500"></div>
-                    <div class="os-ctrl bg-green-500"></div>
-                </div>
-                <div class="text-xs font-mono text-zinc-400 font-bold">term.exe</div>
-                <div class="w-12"></div>
-            </div>
-            <div class="os-window-content p-4 font-mono text-sm h-full flex flex-col bg-[#09090b]">
-                <div id="gui-term-history" class="flex-grow overflow-y-auto mb-2 text-zinc-300">
-                    <span class="text-neonLime">rishit_os v1.0.0</span><br>
-                    <span class="text-zinc-500">> type 'help' to see commands</span><br><br>
-                </div>
-                <div class="flex gap-2 items-center">
-                    <span class="text-neonLime whitespace-nowrap shrink-0">rishit@sys:~ $</span>
-                    <input type="text" id="gui-term-input" class="bg-transparent border-none outline-none text-white w-full" autocomplete="off" spellcheck="false" />
-                </div>
-            </div>
-        </div>
-
         <!-- OS Dock -->
         <div class="os-dock">
             <div class="dock-item hover-trigger" onclick="shutDownGUI()" title="Exit OS">
@@ -1552,6 +1552,69 @@
                 window.addEventListener('touchend', stopDrag);
             });
 
+            // --- GUI Terminal Logic ---
+            const guiTermInput = document.getElementById('gui-term-input');
+            const guiTermHistory = document.getElementById('gui-term-history');
+            
+            function printGuiTerm(text, className = "text-white") {
+                const el = document.createElement('div');
+                el.innerHTML = `<span class="${className}">${text}</span><br>`;
+                guiTermHistory.appendChild(el);
+                guiTermHistory.scrollTop = guiTermHistory.scrollHeight;
+            }
+
+            if(guiTermInput) {
+                guiTermInput.addEventListener('keydown', (e) => {
+                    if(e.key === 'Enter') {
+                        const cmd = guiTermInput.value.trim().toLowerCase();
+                        printGuiTerm(`rishit@sys:~ $ ${cmd}`, "text-neonLime");
+                        guiTermInput.value = '';
+
+                        switch(cmd) {
+                            case 'help': 
+                                printGuiTerm("> cmds: skills, whoami, matrix, crash, resume, projects, clear", "text-neonBlue"); 
+                                break;
+                            case 'skills': 
+                                printGuiTerm("> Python, React, Next.js, GenAI, Unity, IoT", "text-zinc-400"); 
+                                break;
+                            case 'whoami': 
+                                printGuiTerm("> Rishit Tandon. Builder of things.", "text-neonPink"); 
+                                break;
+                            case 'resume':
+                                printGuiTerm("> opening resume...", "text-neonBlue");
+                                window.open('public/Rishit Tandon Image.pdf', '_blank');
+                                break;
+                            case 'projects':
+                                printGuiTerm("> opening projects window...", "text-neonBlue");
+                                openOsWindow('projects-win');
+                                break;
+                            case 'matrix': 
+                                if(!document.body.classList.contains('matrix-active')) {
+                                    document.body.classList.add('matrix-active');
+                                    startMatrix();
+                                    printGuiTerm("> Welcome to the real world.", "text-neonLime"); 
+                                } else {
+                                    document.body.classList.remove('matrix-active');
+                                    clearInterval(matrixInterval);
+                                    printGuiTerm("> Matrix disabled.", "text-zinc-400");
+                                }
+                                break;
+                            case 'clear': 
+                                guiTermHistory.innerHTML = ''; 
+                                break;
+                            case 'crash':
+                                printGuiTerm("> FATAL ERROR: Core dumped.", "text-red-500 font-bold");
+                                document.body.classList.add('system-crash');
+                                setTimeout(() => { document.body.classList.remove('system-crash'); }, 3000);
+                                break;
+                            case '': break;
+                            default: 
+                                printGuiTerm(`> command not found: ${cmd}`, "text-red-400");
+                        }
+                    }
+                });
+            }
+            
             // --- Magnetic Buttons ---
             const magnets = document.querySelectorAll('.magnetic-wrap');
             magnets.forEach(magnet => {
