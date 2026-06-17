@@ -29,8 +29,6 @@
     <div class="ambient-orb orb-blue"></div>
 
     <div class="noise"></div>
-    <div id="cursor-follower"></div>
-    <div class="cursor-dot"></div>
 
     <!-- Hype Loader Screen -->
     <div id="loader">
@@ -798,9 +796,6 @@
 
     </main>
 
-    <!-- Floating Image Preview Element -->
-    
-
     <!-- GUI OS Overlay (Hidden by Default) -->
     <div id="gui-os">
         <div class="os-bg"></div>
@@ -1248,47 +1243,6 @@
                 }
             }, 50);
 
-            // --- Dynamic Follower Cursor (desktop only) ---
-            const follower = document.getElementById('cursor-follower');
-            const dot = document.querySelector('.cursor-dot');
-            const triggers = document.querySelectorAll('.hover-trigger, a, button, .neo-card');
-            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-
-            let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
-            let followerX = window.innerWidth / 2; let followerY = window.innerHeight / 2;
-            const HALF_FOLLOWER = 150; // half of 300px
-            const HALF_DOT = 6;       // half of 12px
-
-            if (!isTouchDevice) {
-                window.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX; mouseY = e.clientY;
-                    dot.style.transform = `translate(${mouseX - HALF_DOT}px, ${mouseY - HALF_DOT}px)`;
-                }, { passive: true });
-
-                const animateFollower = () => {
-                    followerX += (mouseX - followerX) * 0.1;
-                    followerY += (mouseY - followerY) * 0.1;
-                    follower.style.transform = `translate(${followerX - HALF_FOLLOWER}px, ${followerY - HALF_FOLLOWER}px)`;
-                    requestAnimationFrame(animateFollower);
-                };
-                animateFollower();
-            }
-
-            triggers.forEach(t => {
-                t.addEventListener('mouseenter', () => {
-                    document.body.classList.add('hovering');
-                    // Change follower color based on element class for extra juice
-                    if(t.classList.contains('lime')) follower.style.background = 'radial-gradient(circle, rgba(204,255,0,0.2) 0%, rgba(0,0,0,0) 70%)';
-                    else if(t.classList.contains('pink')) follower.style.background = 'radial-gradient(circle, rgba(255,0,255,0.2) 0%, rgba(0,0,0,0) 70%)';
-                    else if(t.classList.contains('blue')) follower.style.background = 'radial-gradient(circle, rgba(0,229,255,0.2) 0%, rgba(0,0,0,0) 70%)';
-                    else follower.style.background = 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%)';
-                });
-                t.addEventListener('mouseleave', () => {
-                    document.body.classList.remove('hovering');
-                    follower.style.background = 'radial-gradient(circle, rgba(204,255,0,0.15) 0%, rgba(0,0,0,0) 70%)';
-                });
-            });
-
             // --- INTERACTIVE ADDITIONS: Reactive 3D Chromatic Text ---
             const heroName = document.getElementById('hero-name');
             window.addEventListener('mousemove', (e) => {
@@ -1721,7 +1675,7 @@
 
     <!-- Mobile Terminal FAB (only visible on mobile) -->
     <button id="mobile-term-btn" aria-label="Open terminal" onclick="toggleMobileTerminal()" 
-        style="display:none; position:fixed; bottom:90px; right:20px; z-index:9000; 
+        style="position:fixed; bottom:90px; right:20px; z-index:9000; 
                background:#ccff00; color:#09090b; border:none; border-radius:999px; 
                padding:10px 18px; font-family:'Space Mono',monospace; font-size:0.8rem; 
                font-weight:700; box-shadow:4px 4px 0 0 rgba(0,0,0,0.5); 
@@ -1830,18 +1784,12 @@
     <script>
         // --- Mobile Terminal Logic ---
         (function() {
-            const isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
             const fab = document.getElementById('mobile-term-btn');
             const drawer = document.getElementById('mobile-term-drawer');
             const sheet = document.getElementById('mobile-term-sheet');
             const mobileHistory = document.getElementById('mobile-term-history');
             const mobileInput = document.getElementById('mobile-term-input');
             const mobileContainer = document.getElementById('mobile-term-container');
-
-            // Show FAB only on touch devices
-            if (isMobile && fab) {
-                fab.style.display = 'flex';
-            }
 
             let termOpen = false;
 
