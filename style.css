@@ -265,7 +265,7 @@
     
     .gui-wallpaper {
         position: absolute; inset: 0; z-index: -1;
-        background: radial-gradient(circle at top right, #1f1f22, #09090b);
+        background: url('https://i.pinimg.com/236x/87/40/e0/8740e0ebde64c015b6dcc2f6540c4f82.jpg') center/cover no-repeat;
     }
 
     #gui-os.booted { display: flex; }
