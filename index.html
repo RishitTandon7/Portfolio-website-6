@@ -855,8 +855,8 @@
                 <div class="app-squircle bg-certs">📜</div>
                 <div class="icon-label">certs.zip</div>
             </div>
-            <div class="os-icon hover-trigger" onclick="openOsWindow('resume-win')">
-                <div class="app-squircle" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">📄</div>
+            <div class="os-icon hover-trigger" onclick="window.open('/Rishit%20Tandon%20Image.pdf', '_blank')">
+                <div class="app-squircle bg-resume">📄</div>
                 <div class="icon-label">resume.pdf</div>
             </div>
             <div class="os-icon hover-trigger" onclick="window.location.href='mailto:rishit.tandon.7@gmail.com'">
@@ -1196,34 +1196,6 @@
             <div class="mobile-home-bar" onclick="closeOsWindow('certs-win')"></div>
         </div>
 
-        <!-- RESUME WINDOW -->
-        <div class="os-window" id="resume-win" style="top: 150px; left: 150px;">
-            <div class="os-window-header hover-trigger">
-                <div class="os-window-controls">
-                    <div class="os-ctrl close hover-trigger" onclick="closeOsWindow('resume-win')"></div>
-                    <div class="os-ctrl min"></div>
-                    <div class="os-ctrl max"></div>
-                </div>
-                <div class="os-window-title">resume_viewer.exe</div>
-                <div class="w-12 md:block hidden"></div>
-            </div>
-            <div class="os-window-body bg-[#e4e4e7] text-dark font-sans text-sm rounded-b-lg">
-                <h1 class="text-4xl font-black uppercase border-b-4 border-dark pb-2 mb-4">Rishit Tandon</h1>
-                <p class="font-bold mb-2">Fourth-year Computer Science & Engineering student (B.Tech, SRM IST, 2027)</p>
-                <p class="mb-4">Specializing in AI/ML, Computer Vision, IoT, and full-stack development. Proven track record of winning national-level hackathons.</p>
-                
-                <h2 class="text-xl font-bold bg-dark text-white px-2 py-1 mb-2 inline-block">Experience</h2>
-                <ul class="list-disc pl-5 mb-6 font-mono text-xs">
-                    <li class="mb-1">Research Intern - ML & Image Processing @ SRM IST x NIDM</li>
-                    <li>Software Development Intern @ DGTL Innovations</li>
-                </ul>
-
-                <a href="/Rishit%20Tandon%20Image.pdf" target="_blank" class="text-blue-600 underline font-bold hover-trigger">View Full Document ↗</a>
-            </div>
-            <!-- Swipe indicator for mobile -->
-            <div class="mobile-home-bar" onclick="closeOsWindow('resume-win')"></div>
-        </div>
-
         <!-- OS Dock -->
         <div class="os-dock">
             <div class="dock-item hover-trigger" onclick="shutDownGUI()" title="Exit OS">
@@ -1247,7 +1219,7 @@
             <div class="dock-item hover-trigger" onclick="openOsWindow('certs-win')" title="Certs">
                 <div class="dock-squircle bg-certs">📜</div>
             </div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('resume-win')" title="Resume">
+            <div class="dock-item hover-trigger" onclick="window.open('/Rishit%20Tandon%20Image.pdf', '_blank')" title="Resume">
                 <div class="dock-squircle bg-resume">📄</div>
             </div>
             <div class="dock-item hover-trigger" onclick="window.open('https://github.com/RishitTandon7', '_blank')" title="GitHub">
@@ -1409,7 +1381,7 @@
                             break;
                         case 'resume':
                             printTerm("> opening resume...", "text-neonBlue");
-                            window.open('public/Rishit Tandon Image.pdf', '_blank');
+                            window.open('/Rishit%20Tandon%20Image.pdf', '_blank');
                             break;
                         case 'projects':
                             printTerm("> routing to builds...", "text-neonBlue");
@@ -1627,7 +1599,7 @@
                                 break;
                             case 'resume':
                                 printGuiTerm("> opening resume...", "text-neonBlue");
-                                window.open('public/Rishit Tandon Image.pdf', '_blank');
+                                window.open('/Rishit%20Tandon%20Image.pdf', '_blank');
                                 break;
                             case 'projects':
                                 printGuiTerm("> opening projects window...", "text-neonBlue");
@@ -1987,7 +1959,7 @@
                         printMobile('> rishit is not in the sudoers file. This incident will be reported.', '#ef4444'); break;
                     case 'resume':
                         printMobile('> opening resume...', '#00e5ff');
-                        window.open('public/Rishit Tandon Image.pdf', '_blank');
+                        window.open('/Rishit%20Tandon%20Image.pdf', '_blank');
                         break;
                     case 'projects':
                         printMobile('> routing to builds...', '#00e5ff');

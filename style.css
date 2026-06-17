@@ -186,25 +186,23 @@
     .os-icon:hover { transform: scale(1.05); }
     
     .app-squircle {
-        width: 56px; height: 56px;
-        border-radius: 16px;
+        width: 68px; height: 68px;
         display: flex; align-items: center; justify-content: center;
-        font-size: 1.8rem;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.2);
-        border: 1px solid rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
+        border-radius: 18px; font-size: 2.2rem;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.1);
+        border: 2px solid rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
     
-    .bg-term { background: linear-gradient(135deg, #18181b, #09090b); color: #ccff00; }
-    .bg-edu { background: linear-gradient(135deg, #ff00ff, #8a2be2); }
-    .bg-wins { background: linear-gradient(135deg, #ffcc00, #ff6600); }
-    .bg-skills { background: linear-gradient(135deg, #00e5ff, #0055ff); }
-    .bg-builds { background: linear-gradient(135deg, #ccff00, #228b22); }
-    .bg-certs { background: linear-gradient(135deg, #ff4500, #990000); }
-    .bg-mail { background: linear-gradient(135deg, #ff1493, #4b0082); }
-    .bg-about { background: linear-gradient(135deg, #888, #444); }
-    .bg-resume { background: linear-gradient(135deg, #4488ff, #224488); }
-    .bg-github { background: linear-gradient(135deg, #333333, #000000); }
+    .bg-term { background: rgba(15,15,20,0.6) !important; border-color: #ccff00 !important; box-shadow: 0 0 20px rgba(204,255,0,0.3), inset 0 0 10px rgba(204,255,0,0.2) !important; color: #ccff00; }
+    .bg-edu { background: rgba(15,15,20,0.6) !important; border-color: #ff00ff !important; box-shadow: 0 0 20px rgba(255,0,255,0.3), inset 0 0 10px rgba(255,0,255,0.2) !important; }
+    .bg-wins { background: rgba(15,15,20,0.6) !important; border-color: #ffaa00 !important; box-shadow: 0 0 20px rgba(255,170,0,0.3), inset 0 0 10px rgba(255,170,0,0.2) !important; }
+    .bg-skills { background: rgba(15,15,20,0.6) !important; border-color: #00e5ff !important; box-shadow: 0 0 20px rgba(0,229,255,0.3), inset 0 0 10px rgba(0,229,255,0.2) !important; }
+    .bg-builds { background: rgba(15,15,20,0.6) !important; border-color: #22ff22 !important; box-shadow: 0 0 20px rgba(34,255,34,0.3), inset 0 0 10px rgba(34,255,34,0.2) !important; }
+    .bg-certs { background: rgba(15,15,20,0.6) !important; border-color: #ff4500 !important; box-shadow: 0 0 20px rgba(255,69,0,0.3), inset 0 0 10px rgba(255,69,0,0.2) !important; }
+    .bg-mail { background: rgba(15,15,20,0.6) !important; border-color: #ff1493 !important; box-shadow: 0 0 20px rgba(255,20,147,0.3), inset 0 0 10px rgba(255,20,147,0.2) !important; }
+    .bg-about { background: rgba(15,15,20,0.6) !important; border-color: #888888 !important; box-shadow: 0 0 20px rgba(136,136,136,0.3), inset 0 0 10px rgba(136,136,136,0.2) !important; }
+    .bg-resume { background: rgba(15,15,20,0.6) !important; border-color: #4488ff !important; box-shadow: 0 0 20px rgba(68,136,255,0.3), inset 0 0 10px rgba(68,136,255,0.2) !important; }
+    .bg-github { background: rgba(15,15,20,0.6) !important; border-color: #ffffff !important; box-shadow: 0 0 20px rgba(255,255,255,0.3), inset 0 0 10px rgba(255,255,255,0.2) !important; }
     .marquee-inner { display: flex; white-space: nowrap; width: 200vw; }
     .marquee-content { font-family: 'Bricolage Grotesque', sans-serif; font-size: 2rem; font-weight: 800; text-transform: uppercase; }
 
@@ -299,12 +297,12 @@
     .dock-item:hover { transform: scale(1.2) translateY(-8px); }
     
     .dock-squircle {
-        width: 48px; height: 48px;
-        border-radius: 12px;
+        width: 52px; height: 52px;
+        border-radius: 14px;
         display: flex; align-items: center; justify-content: center;
-        font-size: 1.5rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.2);
-        border: 1px solid rgba(255,255,255,0.1);
+        font-size: 1.8rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.1);
+        border: 2px solid rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
     
     /* Spatial UI Polished Window Theme */
