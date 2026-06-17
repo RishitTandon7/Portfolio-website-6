@@ -816,7 +816,7 @@
             </div>
         </div>
 
-        <!-- Mobile: iOS Status Bar & Dynamic Island -->
+        <!-- Mobile: iOS Status Bar -->
         <div class="mobile-status-bar">
             <span class="os-clock">10:00</span>
             <div class="flex gap-1.5">
@@ -824,7 +824,6 @@
                 <span>🔋</span>
             </div>
         </div>
-        <div class="dynamic-island"></div>
         
         <!-- Desktop Icons (Grid on Mobile) -->
         <div class="desktop-icons">
@@ -1396,7 +1395,17 @@
 
                     switch(cmd) {
                         case 'help': 
-                            printTerm("> cmds: skills, whoami, matrix, crash, gui, resume, projects, clear", "text-neonBlue"); 
+                            printTerm("> cmds: skills, whoami, matrix, crash, gui, resume, projects, date, echo, sudo, ls, clear", "text-neonBlue"); 
+                            break;
+                        case 'date':
+                            printTerm(`> ${new Date().toString()}`, "text-zinc-400");
+                            break;
+                        case 'ls':
+                            printTerm("> Desktop/  Downloads/  Documents/  projects/  resume.pdf  skills.sh", "text-neonPink");
+                            break;
+                        case 'sudo':
+                        case 'su':
+                            printTerm("> rishit is not in the sudoers file. This incident will be reported.", "text-red-500 font-bold");
                             break;
                         case 'resume':
                             printTerm("> opening resume...", "text-neonBlue");
@@ -1438,7 +1447,13 @@
                             break;
                         case '': break;
                         default: 
-                            printTerm(`> command not found: ${cmd}`, "text-red-400");
+                            if (cmd.startsWith('echo ')) {
+                                printTerm(cmd.substring(5), "text-white");
+                            } else if (cmd.startsWith('sudo ')) {
+                                printTerm("> Permission denied", "text-red-500");
+                            } else {
+                                printTerm(`> command not found: ${cmd}`, "text-red-400");
+                            }
                     }
                 }
             });
@@ -1483,6 +1498,7 @@
             window.bootGUI = function() {
                 guiOs.classList.add('booted');
                 setTimeout(() => { guiOs.classList.add('active'); }, 50);
+                history.pushState({gui: true}, "GUI OS", "#gui");
             }
             
             window.shutDownGUI = function() {
@@ -1492,6 +1508,17 @@
                     printTerm("> GUI shutdown complete.", "text-zinc-500");
                 }, 500);
             }
+
+            window.addEventListener('popstate', (e) => {
+                if (guiOs.classList.contains('booted') && (!e.state || !e.state.gui)) {
+                    // They hit back button
+                    guiOs.classList.remove('active');
+                    setTimeout(() => {
+                        guiOs.classList.remove('booted');
+                        printTerm("> GUI shutdown complete.", "text-zinc-500");
+                    }, 500);
+                }
+            });
 
             window.openOsWindow = function(id) {
                 const win = document.getElementById(id);
@@ -1572,7 +1599,17 @@
 
                         switch(cmd) {
                             case 'help': 
-                                printGuiTerm("> cmds: skills, whoami, matrix, crash, resume, projects, clear", "text-neonBlue"); 
+                                printGuiTerm("> cmds: skills, whoami, matrix, crash, resume, projects, date, echo, sudo, ls, clear", "text-neonBlue"); 
+                                break;
+                            case 'date':
+                                printGuiTerm(`> ${new Date().toString()}`, "text-zinc-400");
+                                break;
+                            case 'ls':
+                                printGuiTerm("> term.exe  projects/  edu.app  wins.exe  xp.log  skills.sh  certs.zip  mail.exe", "text-neonPink");
+                                break;
+                            case 'sudo':
+                            case 'su':
+                                printGuiTerm("> rishit is not in the sudoers file. This incident will be reported.", "text-red-500 font-bold");
                                 break;
                             case 'skills': 
                                 printGuiTerm("> Python, React, Next.js, GenAI, Unity, IoT", "text-zinc-400"); 
@@ -1609,7 +1646,13 @@
                                 break;
                             case '': break;
                             default: 
-                                printGuiTerm(`> command not found: ${cmd}`, "text-red-400");
+                                if (cmd.startsWith('echo ')) {
+                                    printGuiTerm(cmd.substring(5), "text-white");
+                                } else if (cmd.startsWith('sudo ')) {
+                                    printGuiTerm("> Permission denied", "text-red-500");
+                                } else {
+                                    printGuiTerm(`> command not found: ${cmd}`, "text-red-400");
+                                }
                         }
                     }
                 });
@@ -1926,7 +1969,14 @@
                 printMobile(`rishit@sys:~ $ ${cmd}`, '#ccff00');
                 switch(cmd.trim().toLowerCase()) {
                     case 'help':
-                        printMobile('> cmds: skills, whoami, matrix, crash, gui, resume, projects, clear', '#00e5ff'); break;
+                        printMobile('> cmds: skills, whoami, matrix, crash, gui, resume, projects, date, echo, sudo, ls, clear', '#00e5ff'); break;
+                    case 'date':
+                        printMobile(`> ${new Date().toString()}`, '#a1a1aa'); break;
+                    case 'ls':
+                        printMobile('> Desktop/  Downloads/  Documents/  projects/  resume.pdf  skills.sh', '#ff00ff'); break;
+                    case 'sudo':
+                    case 'su':
+                        printMobile('> rishit is not in the sudoers file. This incident will be reported.', '#ef4444'); break;
                     case 'resume':
                         printMobile('> opening resume...', '#00e5ff');
                         window.open('public/Rishit Tandon Image.pdf', '_blank');
@@ -1964,7 +2014,13 @@
                         break;
                     case '': break;
                     default:
-                        printMobile(`> command not found: ${cmd}`, '#f87171');
+                        if (cmd.trim().startsWith('echo ')) {
+                            printMobile(cmd.trim().substring(5), '#fafafa');
+                        } else if (cmd.trim().startsWith('sudo ')) {
+                            printMobile('> Permission denied', '#ef4444');
+                        } else {
+                            printMobile(`> command not found: ${cmd}`, '#f87171');
+                        }
                 }
             }
 
