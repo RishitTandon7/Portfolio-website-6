@@ -365,10 +365,11 @@
             border-radius: 0; transform: translateY(100%) !important; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
             background: #09090b !important; /* Fully opaque on mobile so desktop doesn't bleed through */
         }
-        .os-window.active { transform: translateY(0) !important; }
+        .os-window.active { transform: translateY(0) !important; z-index: 150 !important; }
         .os-window-header { padding-top: 50px; justify-content: center; background: #18181b !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .os-window-controls { display: none; }
         .os-window-title { font-size: 1rem; }
+        .os-window-body { padding-bottom: 40px !important; }
         .mobile-home-bar {
             display: block; position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%);
             width: 140px; height: 5px; background: white; border-radius: 10px; z-index: 200; cursor: pointer;
