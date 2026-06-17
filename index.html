@@ -798,6 +798,7 @@
 
     <!-- GUI OS Overlay (Hidden by Default) -->
     <div id="gui-os">
+        <div class="gui-wallpaper"></div>
         <div class="os-bg"></div>
         <div class="noise"></div>
         
@@ -827,36 +828,40 @@
         
         <!-- Desktop Icons (Grid on Mobile) -->
         <div class="desktop-icons">
+            <div class="os-icon hover-trigger" onclick="openOsWindow('term-win')">
+                <div class="app-squircle bg-term">>_</div>
+                <div class="icon-label">term.exe</div>
+            </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('projects-win')">
-                <div class="icon-emoji">📁</div>
+                <div class="app-squircle bg-builds">📁</div>
                 <div class="icon-label">builds</div>
             </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('edu-win')">
-                <div class="icon-emoji">🎓</div>
+                <div class="app-squircle bg-edu">🎓</div>
                 <div class="icon-label">edu.app</div>
             </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('wins-win')">
-                <div class="icon-emoji">🏆</div>
+                <div class="app-squircle bg-wins">🏆</div>
                 <div class="icon-label">wins.exe</div>
             </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('exp-win')">
-                <div class="icon-emoji">💼</div>
+                <div class="app-squircle bg-about">💼</div>
                 <div class="icon-label">xp.log</div>
             </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('skills-win')">
-                <div class="icon-emoji">⚡</div>
+                <div class="app-squircle bg-skills">⚡</div>
                 <div class="icon-label">skills.sh</div>
             </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('certs-win')">
-                <div class="icon-emoji">📜</div>
+                <div class="app-squircle bg-certs">📜</div>
                 <div class="icon-label">certs.zip</div>
             </div>
             <div class="os-icon hover-trigger" onclick="openOsWindow('resume-win')">
-                <div class="icon-emoji">📄</div>
+                <div class="app-squircle" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">📄</div>
                 <div class="icon-label">resume.pdf</div>
             </div>
             <div class="os-icon hover-trigger" onclick="window.location.href='mailto:rishit.tandon.7@gmail.com'">
-                <div class="icon-emoji">✉️</div>
+                <div class="app-squircle bg-mail">✉️</div>
                 <div class="icon-label">email.exe</div>
             </div>
         </div>
@@ -1197,18 +1202,58 @@
             <div class="mobile-home-bar" onclick="closeOsWindow('resume-win')"></div>
         </div>
 
+        <!-- NEW WINDOW: Terminal -->
+        <div id="term-win" class="os-window" style="width: 600px; height: 400px; top: 10%; left: 10%;">
+            <div class="os-window-header flex justify-between items-center">
+                <div class="flex gap-2">
+                    <div class="os-ctrl bg-red-500 hover-trigger" onclick="closeOsWindow('term-win')"></div>
+                    <div class="os-ctrl bg-yellow-500"></div>
+                    <div class="os-ctrl bg-green-500"></div>
+                </div>
+                <div class="text-xs font-mono text-zinc-400 font-bold">term.exe</div>
+                <div class="w-12"></div>
+            </div>
+            <div class="os-window-content p-4 font-mono text-sm h-full flex flex-col bg-[#09090b]">
+                <div id="gui-term-history" class="flex-grow overflow-y-auto mb-2 text-zinc-300">
+                    <span class="text-neonLime">rishit_os v1.0.0</span><br>
+                    <span class="text-zinc-500">> type 'help' to see commands</span><br><br>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <span class="text-neonLime whitespace-nowrap shrink-0">rishit@sys:~ $</span>
+                    <input type="text" id="gui-term-input" class="bg-transparent border-none outline-none text-white w-full" autocomplete="off" spellcheck="false" />
+                </div>
+            </div>
+        </div>
+
         <!-- OS Dock -->
         <div class="os-dock">
-            <div class="dock-item hover-trigger" onclick="shutDownGUI()" title="Shut Down">🔴</div>
-            <div class="w-px h-8 bg-zinc-700 mx-1"></div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('projects-win')" title="Builds">📁</div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('edu-win')" title="Education">🎓</div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('wins-win')" title="Wins">🏆</div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('exp-win')" title="Experience">💼</div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('skills-win')" title="Skills">⚡</div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('certs-win')" title="Certs">📜</div>
-            <div class="dock-item hover-trigger" onclick="openOsWindow('resume-win')" title="Resume">📄</div>
-            <div class="dock-item hover-trigger" onclick="window.open('https://github.com/RishitTandon7', '_blank')" title="GitHub">🐙</div>
+            <div class="dock-item hover-trigger" onclick="shutDownGUI()" title="Exit OS">
+                <div class="dock-squircle" style="background: linear-gradient(135deg, #ff0055, #880000); color: white;">×</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('term-win')" title="Terminal">
+                <div class="dock-squircle bg-term">>_</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('projects-win')" title="Projects">
+                <div class="dock-squircle bg-builds">📁</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('edu-win')" title="Education">
+                <div class="dock-squircle bg-edu">🎓</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('wins-win')" title="Wins">
+                <div class="dock-squircle bg-wins">🏆</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('skills-win')" title="Skills">
+                <div class="dock-squircle bg-skills">⚡</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('certs-win')" title="Certs">
+                <div class="dock-squircle bg-certs">📜</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="openOsWindow('resume-win')" title="Resume">
+                <div class="dock-squircle bg-resume">📄</div>
+            </div>
+            <div class="dock-item hover-trigger" onclick="window.open('https://github.com/RishitTandon7', '_blank')" title="GitHub">
+                <div class="dock-squircle bg-github">🐙</div>
+            </div>
         </div>
     </div>
 
@@ -1872,6 +1917,77 @@
                 });
             }
         })();
+        // --- GUI Terminal Logic ---
+        (function() {
+            const guiInput = document.getElementById('gui-term-input');
+            const guiHistory = document.getElementById('gui-term-history');
+            
+            if(!guiInput || !guiHistory) return;
+
+            function printGui(text, colorClass) {
+                const el = document.createElement('div');
+                el.innerHTML = `<span class="${colorClass}">${text}</span><br>`;
+                guiHistory.appendChild(el);
+                guiHistory.parentElement.scrollTop = guiHistory.parentElement.scrollHeight;
+            }
+
+            guiInput.addEventListener('keydown', (e) => {
+                if(e.key === 'Enter') {
+                    const cmd = guiInput.value.trim();
+                    if (!cmd) return;
+                    
+                    printGui(`rishit@sys:~ $ ${cmd}`, "text-neonLime");
+                    guiInput.value = '';
+
+                    switch(cmd.toLowerCase()) {
+                        case 'help':
+                            printGui("> cmds: skills, whoami, matrix, crash, exit, resume, projects, clear", "text-neonBlue"); 
+                            break;
+                        case 'skills':
+                            printGui("> Python, React, Next.js, GenAI, Unity, IoT", "text-zinc-400"); 
+                            break;
+                        case 'whoami':
+                            printGui("> Rishit Tandon. Builder of things.", "text-neonPink"); 
+                            break;
+                        case 'resume':
+                            printGui("> opening resume...", "text-neonBlue");
+                            window.open('public/Rishit Tandon Image.pdf', '_blank');
+                            break;
+                        case 'projects':
+                            printGui("> routing to builds...", "text-neonBlue");
+                            openOsWindow('projects-win');
+                            break;
+                        case 'matrix':
+                            if(!document.body.classList.contains('matrix-active')) {
+                                document.body.classList.add('matrix-active');
+                                startMatrix();
+                                printGui("> Welcome to the real world.", "text-neonLime"); 
+                            } else {
+                                document.body.classList.remove('matrix-active');
+                                clearInterval(matrixInterval);
+                                printGui("> Matrix disabled.", "text-zinc-400");
+                            }
+                            break;
+                        case 'clear':
+                            guiHistory.innerHTML = '';
+                            break;
+                        case 'exit':
+                        case 'gui':
+                            closeOsWindow('term-win');
+                            break;
+                        case 'crash':
+                        case 'sudo rm -rf /':
+                            printGui("> FATAL ERROR: Core dumped.", "text-red-500 font-bold");
+                            document.body.classList.add('system-crash');
+                            setTimeout(() => { document.body.classList.remove('system-crash'); }, 3000);
+                            break;
+                        default:
+                            printGui(`> command not found: ${cmd}`, "text-red-400");
+                    }
+                }
+            });
+        })();
+
     </script>
 </body>
 
