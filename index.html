@@ -1510,13 +1510,14 @@
             }
 
             window.addEventListener('popstate', (e) => {
-                if (guiOs.classList.contains('booted') && (!e.state || !e.state.gui)) {
-                    // They hit back button
-                    guiOs.classList.remove('active');
-                    setTimeout(() => {
-                        guiOs.classList.remove('booted');
-                        printTerm("> GUI shutdown complete.", "text-zinc-500");
-                    }, 500);
+                if (guiOs.classList.contains('booted')) {
+                    if (!e.state || !e.state.gui) {
+                        // They hit back button and left the GUI completely
+                        shutDownGUI();
+                    } else if (!e.state.app) {
+                        // They are in the GUI desktop but an app was open, so close all apps
+                        document.querySelectorAll('.os-window.active').forEach(w => w.classList.remove('active'));
+                    }
                 }
             });
 
@@ -1525,10 +1526,17 @@
                 win.classList.add('active');
                 document.querySelectorAll('.os-window').forEach(w => w.style.zIndex = 50);
                 win.style.zIndex = 51;
+                history.pushState({gui: true, app: id}, "GUI App", "#gui-" + id);
             }
             
             window.closeOsWindow = function(id) {
-                document.getElementById(id).classList.remove('active');
+                const win = document.getElementById(id);
+                if (win.classList.contains('active')) {
+                    win.classList.remove('active');
+                    if (history.state && history.state.app === id) {
+                        history.back();
+                    }
+                }
             }
 
             setInterval(() => {
