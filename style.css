@@ -340,8 +340,8 @@
         .noise { display: none; }
         body { cursor: auto !important; }
         .draggable-window { display: none !important; }
-        .marquee-wrapper { padding: 1.5rem 0; transform: rotate(-3deg) scale(1.05); }
-        .marquee-content { font-size: 3rem; }
+        .marquee-wrapper { padding: 0.75rem 0; transform: rotate(-3deg) scale(1.05); }
+        .marquee-content { font-size: 1.75rem; }
         
         .os-top-bar { display: none; }
         .mobile-status-bar {
