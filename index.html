@@ -890,8 +890,8 @@
                 <div class="text-xs font-mono text-zinc-400 font-bold">term.exe</div>
                 <div class="w-12"></div>
             </div>
-            <div class="os-window-content p-4 font-mono text-sm h-full flex flex-col bg-[#09090b]">
-                <div id="gui-term-history" class="flex-grow overflow-y-auto mb-2 text-zinc-300">
+            <div class="os-window-content p-4 font-mono text-sm h-full overflow-y-auto bg-[#09090b]" id="gui-term-container" onclick="document.getElementById('gui-term-input').focus()">
+                <div id="gui-term-history" class="mb-2 text-zinc-300">
                     <span class="text-neonLime">rishit_os v1.0.0</span><br>
                     <span class="text-zinc-500">> type 'help' to see commands</span><br><br>
                 </div>
@@ -1721,7 +1721,8 @@ EOF
                 const el = document.createElement('div');
                 el.innerHTML = `<span class="${className}">${text}</span><br>`;
                 guiTermHistory.appendChild(el);
-                guiTermHistory.scrollTop = guiTermHistory.scrollHeight;
+                const container = document.getElementById('gui-term-container');
+                if(container) container.scrollTop = container.scrollHeight;
             }
 
             if(guiTermInput) {
