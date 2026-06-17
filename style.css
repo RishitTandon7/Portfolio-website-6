@@ -203,6 +203,8 @@
     .bg-certs { background: linear-gradient(135deg, #ff4500, #990000); }
     .bg-mail { background: linear-gradient(135deg, #ff1493, #4b0082); }
     .bg-about { background: linear-gradient(135deg, #888, #444); }
+    .bg-resume { background: linear-gradient(135deg, #4488ff, #224488); }
+    .bg-github { background: linear-gradient(135deg, #333333, #000000); }
     .marquee-inner { display: flex; white-space: nowrap; width: 200vw; }
     .marquee-content { font-family: 'Bricolage Grotesque', sans-serif; font-size: 2rem; font-weight: 800; text-transform: uppercase; }
 
@@ -283,8 +285,8 @@
     .dynamic-island { display: none; }
     .mobile-home-bar { display: none; }
     
-    .desktop-icons { position: relative; z-index: 10; padding: 40px 30px; display: flex; flex-direction: column; gap: 30px; width: 120px; }
-    .os-icon { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; padding: 10px; border-radius: 8px; border: 1px solid transparent; transition: all 0.2s; }
+    .desktop-icons { position: relative; z-index: 10; padding: 40px 30px; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; gap: 30px; max-height: calc(100vh - 120px); }
+    .os-icon { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; padding: 10px; border-radius: 8px; border: 1px solid transparent; transition: all 0.2s; width: 100px; }
     .os-icon:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
     .os-icon .icon-emoji { font-size: 3rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
     .os-icon .icon-label { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #fafafa; text-shadow: 0 1px 3px rgba(0,0,0,0.8); background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 4px; text-align: center; }
